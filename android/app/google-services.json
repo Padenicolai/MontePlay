@@ -40,42 +40,6 @@
           ]
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:550849047191:android:09026eb48f20a0c6ce17d2",
-        "android_client_info": {
-          "package_name": "com.mycompany.youtube"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "550849047191-jttqvq1p1re1l1p2ju2o3m5cnbjf08rc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBY2VY3eoEy1GY-_O0FDzp_1cm1moR8J0o"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "550849047191-jttqvq1p1re1l1p2ju2o3m5cnbjf08rc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "550849047191-d056sg3l4l5r3m023r589ps7s568qfc5.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.montesanto.MontePlay"
-              }
-            }
-          ]
-        }
-      }
     }
   ],
   "configuration_version": "1"
