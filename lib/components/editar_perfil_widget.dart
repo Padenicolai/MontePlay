@@ -668,7 +668,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget>
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
                                   ),
-                                  'padrao',
+                                  'xx xx xxxx',
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

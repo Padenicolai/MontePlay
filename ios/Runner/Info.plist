@@ -54,9 +54,9 @@
 	<true/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>O aplicativo MontePlay gostaria de ter acesso à sua câmera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
+    <string>O aplicativo MontePlay gostaria de ter acesso à suabiblioteca de fotos.</string>
 	<key>PermissionGroupNotification</key>
     <string>Aceitar receber notificações?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
