@@ -54,9 +54,9 @@
 	<true/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>O aplicativo MontePlay gostaria de ter acesso à sua câmera.</string>
+    <string>Este aplicativo precisa acessar sua câmera para que você possa tirar fotos e criar conteúdo personalizado, como fotos de perfil. Aceitar permitir o acesso?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>O aplicativo MontePlay gostaria de ter acesso à suabiblioteca de fotos.</string>
+    <string>Este aplicativo precisa acessar sua biblioteca de fotos para que você possa selecionar e enviar fotos para compartilhar em seu perfil e melhorar sua experiência com visuais personalizados. Aceitar permitir o acesso?</string>
 	<key>PermissionGroupNotification</key>
     <string>Aceitar receber notificações?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
