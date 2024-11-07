@@ -31,6 +31,7 @@ void main() async {
 
   // Start final custom actions code
   await actions.pushNotification();
+  await actions.onesignalInitialise();
   // End final custom actions code
 
   runApp(ChangeNotifierProvider(

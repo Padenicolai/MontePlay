@@ -9,6 +9,8 @@ import '/components/login_novo_widget.dart';
 import '/components/push_all_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -55,6 +57,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
           currentUserUid,
         ),
       );
+      safeSetState(() => _model.requestCompleter = null);
+      await _model.waitForRequestCompleted();
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -73,12 +77,14 @@ class _PerfilWidgetState extends State<PerfilWidget> {
       builder: (context) {
         if (loggedIn) {
           return FutureBuilder<List<UsuariosRow>>(
-            future: UsuariosTable().querySingleRow(
-              queryFn: (q) => q.eq(
-                'user_id',
-                widget.userid,
-              ),
-            ),
+            future: (_model.requestCompleter ??= Completer<List<UsuariosRow>>()
+                  ..complete(UsuariosTable().querySingleRow(
+                    queryFn: (q) => q.eq(
+                      'user_id',
+                      widget.userid,
+                    ),
+                  )))
+                .future,
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
               if (!snapshot.hasData) {
@@ -93,11 +99,12 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                   ),
                 );
               }
-              List<UsuariosRow> containerUsuariosRowList = snapshot.data!;
+              List<UsuariosRow> containerPerfilUsuariosRowList = snapshot.data!;
 
-              final containerUsuariosRow = containerUsuariosRowList.isNotEmpty
-                  ? containerUsuariosRowList.first
-                  : null;
+              final containerPerfilUsuariosRow =
+                  containerPerfilUsuariosRowList.isNotEmpty
+                      ? containerPerfilUsuariosRowList.first
+                      : null;
 
               return Container(
                 height: MediaQuery.sizeOf(context).height * 1.0,
@@ -123,7 +130,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    containerUsuariosRow?.nomeUsuario,
+                                    containerPerfilUsuariosRow?.nomeUsuario,
                                     'Nome',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -216,7 +223,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                               ),
                                         ),
                                       ),
-                                      if (containerUsuariosRow?.status ==
+                                      if (containerPerfilUsuariosRow?.status ==
                                           'admin')
                                         Align(
                                           alignment:
@@ -552,7 +559,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                       future: CadastroGrupoTable().queryRows(
                                         queryFn: (q) => q.eq(
                                           'id_usuario',
-                                          containerUsuariosRow?.usuariosId,
+                                          containerPerfilUsuariosRow
+                                              ?.usuariosId,
                                         ),
                                       ),
                                       builder: (context, snapshot) {
@@ -606,8 +614,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                                         MediaQuery.viewInsetsOf(
                                                             context),
                                                     child: CardGrupoWidget(
-                                                      uId: containerUsuariosRow!
-                                                          .usuariosId,
+                                                      uId:
+                                                          containerPerfilUsuariosRow!
+                                                              .usuariosId,
                                                     ),
                                                   ),
                                                 );
@@ -699,7 +708,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                       future: FuncoesTable().queryRows(
                                         queryFn: (q) => q.eq(
                                           'user_id',
-                                          containerUsuariosRow?.usuariosId,
+                                          containerPerfilUsuariosRow
+                                              ?.usuariosId,
                                         ),
                                       ),
                                       builder: (context, snapshot) {
@@ -746,8 +756,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                                             context),
                                                     child: CardFuncoesWidget(
                                                       authId: currentUserUid,
-                                                      uId: containerUsuariosRow!
-                                                          .usuariosId,
+                                                      uId:
+                                                          containerPerfilUsuariosRow!
+                                                              .usuariosId,
                                                       grupoId:
                                                           containerViewUsuarioFuncaoMinisterioRowList
                                                               .map((e) =>
@@ -859,8 +870,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                                     MediaQuery.viewInsetsOf(
                                                         context),
                                                 child: BloqueiosWidget(
-                                                  usuario: containerUsuariosRow!
-                                                      .usuariosId,
+                                                  usuario:
+                                                      containerPerfilUsuariosRow!
+                                                          .usuariosId,
                                                 ),
                                               ),
                                             );
@@ -972,7 +984,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                           fadeOutDuration:
                                               const Duration(milliseconds: 500),
                                           imageUrl: valueOrDefault<String>(
-                                            containerUsuariosRow?.foto,
+                                            containerPerfilUsuariosRow?.foto,
                                             'https://media.istockphoto.com/id/1300845620/pt/vetorial/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=7TO9d1_F-zi74bCZGEUzpa-nXT1JbcVglYMk_4MSwdg=',
                                           ),
                                           width: 44.0,
@@ -1002,10 +1014,11 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                                     MediaQuery.viewInsetsOf(
                                                         context),
                                                 child: EditarPerfilWidget(
-                                                  id: containerUsuariosRow!
+                                                  id: containerPerfilUsuariosRow!
                                                       .usuariosId,
-                                                  userId: containerUsuariosRow
-                                                      .userId!,
+                                                  userId:
+                                                      containerPerfilUsuariosRow
+                                                          .userId!,
                                                 ),
                                               ),
                                             );
@@ -1148,6 +1161,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
+                                await actions.onesignalLogout();
                                 GoRouter.of(context).prepareAuthEvent();
                                 await authManager.signOut();
                                 GoRouter.of(context).clearRedirectLocation();
@@ -1271,6 +1285,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                     ) ??
                                     false;
                                 if (confirmDialogResponse) {
+                                  await actions.onesignalLogout();
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();

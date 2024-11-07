@@ -8,7 +8,7 @@ Future initFirebase() async {
             apiKey: "AIzaSyADugMO31QQLolcAv7c2vKGhn6cNUVRWMQ",
             authDomain: "montesantoplay-pro-ilbxtc.firebaseapp.com",
             projectId: "montesantoplay-pro-ilbxtc",
-            storageBucket: "montesantoplay-pro-ilbxtc.appspot.com",
+            storageBucket: "montesantoplay-pro-ilbxtc.firebasestorage.app",
             messagingSenderId: "550849047191",
             appId: "1:550849047191:web:66c14d8fc9140a51ce17d2"));
   } else {
