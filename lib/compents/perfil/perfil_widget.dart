@@ -9,7 +9,6 @@ import '/components/login_novo_widget.dart';
 import '/components/push_all_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -1161,7 +1160,6 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await actions.onesignalLogout();
                                 GoRouter.of(context).prepareAuthEvent();
                                 await authManager.signOut();
                                 GoRouter.of(context).clearRedirectLocation();
@@ -1285,7 +1283,6 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                     ) ??
                                     false;
                                 if (confirmDialogResponse) {
-                                  await actions.onesignalLogout();
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();

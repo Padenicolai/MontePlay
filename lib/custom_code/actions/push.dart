@@ -11,8 +11,9 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-Future pushNotification() async {
+Future push() async {
   // Add your function code here!
+
   NotificationSettings settings =
       await FirebaseMessaging.instance.requestPermission(
     alert: true,
