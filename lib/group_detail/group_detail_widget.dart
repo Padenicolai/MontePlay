@@ -58,15 +58,15 @@ class _GroupDetailWidgetState extends State<GroupDetailWidget> {
         queryFn: (q) => q
             .eq(
               'id',
-              widget.chatId,
+              widget.chatId!,
             )
             .eq(
               'id',
-              widget.chatId,
+              widget.chatId!,
             )
             .overlaps(
               'chat_members',
-              widget.chatMembers,
+              widget.chatMembers!,
             ),
       ),
       builder: (context, snapshot) {
@@ -558,7 +558,7 @@ class _GroupDetailWidgetState extends State<GroupDetailWidget> {
                                         },
                                         matchingRows: (rows) => rows.eq(
                                           'id',
-                                          widget.chatId,
+                                          widget.chatId!,
                                         ),
                                       );
 

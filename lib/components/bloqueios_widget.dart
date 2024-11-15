@@ -204,7 +204,7 @@ class _BloqueiosWidgetState extends State<BloqueiosWidget> {
                         ..complete(VBloqueiosTable().queryRows(
                           queryFn: (q) => q.eq(
                             'usuario_id',
-                            widget.usuario,
+                            widget.usuario!,
                           ),
                         )))
                       .future,
@@ -294,7 +294,7 @@ class _BloqueiosWidgetState extends State<BloqueiosWidget> {
                                         await BloqueiosTable().delete(
                                           matchingRows: (rows) => rows.eq(
                                             'id',
-                                            listViewVBloqueiosRow.id,
+                                            listViewVBloqueiosRow.id!,
                                           ),
                                         );
                                         safeSetState(() =>

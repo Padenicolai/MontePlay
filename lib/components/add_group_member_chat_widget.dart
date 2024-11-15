@@ -356,7 +356,7 @@ class _AddGroupMemberChatWidgetState extends State<AddGroupMemberChatWidget> {
                     },
                     matchingRows: (rows) => rows.eq(
                       'id',
-                      widget.chatid,
+                      widget.chatid!,
                     ),
                   );
                   safeSetState(() {

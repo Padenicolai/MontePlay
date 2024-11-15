@@ -80,7 +80,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                   ..complete(UsuariosTable().querySingleRow(
                     queryFn: (q) => q.eq(
                       'user_id',
-                      widget.userid,
+                      widget.userid!,
                     ),
                   )))
                 .future,
@@ -558,8 +558,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                       future: CadastroGrupoTable().queryRows(
                                         queryFn: (q) => q.eq(
                                           'id_usuario',
-                                          containerPerfilUsuariosRow
-                                              ?.usuariosId,
+                                          containerPerfilUsuariosRow!
+                                              .usuariosId,
                                         ),
                                       ),
                                       builder: (context, snapshot) {
@@ -707,8 +707,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                       future: FuncoesTable().queryRows(
                                         queryFn: (q) => q.eq(
                                           'user_id',
-                                          containerPerfilUsuariosRow
-                                              ?.usuariosId,
+                                          containerPerfilUsuariosRow!
+                                              .usuariosId,
                                         ),
                                       ),
                                       builder: (context, snapshot) {

@@ -57,7 +57,7 @@ class _VideoMinistracoesWidgetState extends State<VideoMinistracoesWidget> {
       future: ContagemLikesTable().querySingleRow(
         queryFn: (q) => q.eq(
           'videoId',
-          widget.videoId,
+          widget.videoId!,
         ),
       ),
       builder: (context, snapshot) {

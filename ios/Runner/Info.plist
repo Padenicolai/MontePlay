@@ -58,7 +58,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>Este aplicativo precisa acessar sua biblioteca de fotos para que você possa selecionar e enviar fotos para compartilhar em seu perfil e melhorar sua experiência com visuais personalizados. Aceitar permitir o acesso?</string>
 	<key>PermissionGroupNotification</key>
-    <string>Aceitar receber notificações?</string>
+    <string>Aceita receber notificações deste aplicativo para ficar sabendo de novidades, eventos e outros?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>Permite compartilhar localização?</string>
 	<key>ITSAppUsesNonExemptEncryption</key>

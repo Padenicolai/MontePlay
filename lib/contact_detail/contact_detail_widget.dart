@@ -40,7 +40,7 @@ class _ContactDetailWidgetState extends State<ContactDetailWidget> {
       _model.contatoDetalhe = await UsuariosTable().queryRows(
         queryFn: (q) => q.eq(
           'nomeUsuario',
-          widget.nome,
+          widget.nome!,
         ),
       );
     });
@@ -212,7 +212,7 @@ class _ContactDetailWidgetState extends State<ContactDetailWidget> {
                               await ChatsTable().delete(
                                 matchingRows: (rows) => rows.eq(
                                   'id',
-                                  widget.chatId,
+                                  widget.chatId!,
                                 ),
                               );
 

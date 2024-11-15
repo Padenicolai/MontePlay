@@ -228,7 +228,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                               ..complete(MessagesTable().queryRows(
                                 queryFn: (q) => q.eq(
                                   'reciepient_id',
-                                  widget.chatId,
+                                  widget.chatId!,
                                 ),
                               )))
                         .future,

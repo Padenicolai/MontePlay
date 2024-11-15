@@ -394,7 +394,7 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                               'usuarios_id',
                               SupabaseGroup.getUsuariosCall.usuarioId(
                                 (_model.outUser?.jsonBody ?? ''),
-                              ),
+                              )!,
                             )
                             .gte(
                               'data',

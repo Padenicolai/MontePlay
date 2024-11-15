@@ -188,7 +188,7 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
                         future: ViewUsergrupoTable().queryRows(
                           queryFn: (q) => q.eq(
                             'idgrupo',
-                            widget.grupo,
+                            widget.grupo!,
                           ),
                         ),
                         builder: (context, snapshot) {

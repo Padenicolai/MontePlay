@@ -72,11 +72,11 @@ class _SwitchGrupoWidgetState extends State<SwitchGrupoWidget> {
             matchingRows: (rows) => rows
                 .eq(
                   'id_usuario',
-                  widget.usuarioId,
+                  widget.usuarioId!,
                 )
                 .eq(
                   'id_grupo',
-                  widget.grupoId,
+                  widget.grupoId!,
                 ),
             returnRows: true,
           );

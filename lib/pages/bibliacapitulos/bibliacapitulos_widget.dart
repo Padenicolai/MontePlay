@@ -305,11 +305,11 @@ class _BibliacapitulosWidgetState extends State<BibliacapitulosWidget> {
                                         queryFn: (q) => q
                                             .eq(
                                               'id_livro',
-                                              widget.idLivro,
+                                              widget.idLivro!,
                                             )
                                             .eq(
                                               'capitulo',
-                                              _model.capituloAtual,
+                                              _model.capituloAtual!,
                                             )
                                             .order('versiculo',
                                                 ascending: true),

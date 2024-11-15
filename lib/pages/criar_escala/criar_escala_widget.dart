@@ -170,7 +170,7 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                     future: EscalasTable().queryRows(
                       queryFn: (q) => q.eq(
                         'culto_id',
-                        widget.idCulto,
+                        widget.idCulto!,
                       ),
                     ),
                     builder: (context, snapshot) {
@@ -352,16 +352,16 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                     .eq(
                                                       'usuarios_id',
                                                       listViewEscalasRow
-                                                          .usuarioId,
+                                                          .usuarioId!,
                                                     )
                                                     .eq(
                                                       'ministerio_id',
                                                       listViewEscalasRow
-                                                          .ministerioId,
+                                                          .ministerioId!,
                                                     )
                                                     .eq(
                                                       'idCulto',
-                                                      widget.idCulto,
+                                                      widget.idCulto!,
                                                     ),
                                                 returnRows: true,
                                               );
@@ -434,7 +434,8 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                   ),
                               unselectedLabelStyle: const TextStyle(),
                               labelColor: const Color(0xFFEFEFF9),
-                              unselectedLabelColor: const Color(0xFFEFEFF9),
+                              unselectedLabelColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                               backgroundColor: const Color(0xF4171A49),
                               unselectedBackgroundColor: const Color(0xB466666B),
                               borderColor:
@@ -1449,11 +1450,11 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                                         (rows) => rows
                                                                             .eq(
                                                                               'idCulto',
-                                                                              widget.idCulto,
+                                                                              widget.idCulto!,
                                                                             )
                                                                             .eq(
                                                                               'usuarios_id',
-                                                                              listViewVEscalagrupoRow.idUsuario,
+                                                                              listViewVEscalagrupoRow.idUsuario!,
                                                                             ),
                                                                     returnRows:
                                                                         true,

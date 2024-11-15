@@ -66,11 +66,11 @@ class _DrdfuncaoWidgetState extends State<DrdfuncaoWidget> {
         queryFn: (q) => q
             .eq(
               'idusuario',
-              widget.id,
+              widget.id!,
             )
             .eq(
               'grupo',
-              widget.idGrupo,
+              widget.idGrupo!,
             )
             .order('idministerio', ascending: true),
       ),
@@ -134,7 +134,7 @@ class _DrdfuncaoWidgetState extends State<DrdfuncaoWidget> {
               },
               matchingRows: (rows) => rows.eq(
                 'id',
-                widget.idEscala,
+                widget.idEscala!,
               ),
             );
           },

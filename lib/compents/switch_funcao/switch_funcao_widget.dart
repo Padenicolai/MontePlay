@@ -70,15 +70,15 @@ class _SwitchFuncaoWidgetState extends State<SwitchFuncaoWidget> {
             matchingRows: (rows) => rows
                 .eq(
                   'user_id',
-                  widget.usuarioId,
+                  widget.usuarioId!,
                 )
                 .eq(
                   'u_user',
-                  widget.userId,
+                  widget.userId!,
                 )
                 .eq(
                   'ministerios_id',
-                  widget.ministerioId,
+                  widget.ministerioId!,
                 ),
             returnRows: true,
           );

@@ -191,7 +191,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                         queryFn: (q) => q
                             .eq(
                               'culto_id',
-                              widget.idCulto,
+                              widget.idCulto!,
                             )
                             .order('ministerio_id', ascending: true),
                       ),
@@ -383,17 +383,17 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                       .eq(
                                                                         'usuarios_id',
                                                                         louvorItem
-                                                                            .usuarioId,
+                                                                            .usuarioId!,
                                                                       )
                                                                       .eq(
                                                                         'ministerio_id',
                                                                         louvorItem
-                                                                            .ministerioId,
+                                                                            .ministerioId!,
                                                                       )
                                                                       .eq(
                                                                         'idCulto',
                                                                         louvorItem
-                                                                            .cultoId,
+                                                                            .cultoId!,
                                                                       ),
                                                             );
                                                             shouldSetState =
@@ -691,17 +691,17 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                       .eq(
                                                                         'usuarios_id',
                                                                         dancaItem
-                                                                            .usuarioId,
+                                                                            .usuarioId!,
                                                                       )
                                                                       .eq(
                                                                         'ministerio_id',
                                                                         dancaItem
-                                                                            .ministerioId,
+                                                                            .ministerioId!,
                                                                       )
                                                                       .eq(
                                                                         'idCulto',
                                                                         dancaItem
-                                                                            .cultoId,
+                                                                            .cultoId!,
                                                                       ),
                                                             );
                                                             shouldSetState =
@@ -999,17 +999,17 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                       .eq(
                                                                         'usuarios_id',
                                                                         midiaItem
-                                                                            .usuarioId,
+                                                                            .usuarioId!,
                                                                       )
                                                                       .eq(
                                                                         'ministerio_id',
                                                                         midiaItem
-                                                                            .ministerioId,
+                                                                            .ministerioId!,
                                                                       )
                                                                       .eq(
                                                                         'idCulto',
                                                                         midiaItem
-                                                                            .cultoId,
+                                                                            .cultoId!,
                                                                       ),
                                                             );
                                                             shouldSetState =
@@ -1307,17 +1307,17 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                       .eq(
                                                                         'usuarios_id',
                                                                         infantilItem
-                                                                            .usuarioId,
+                                                                            .usuarioId!,
                                                                       )
                                                                       .eq(
                                                                         'ministerio_id',
                                                                         infantilItem
-                                                                            .ministerioId,
+                                                                            .ministerioId!,
                                                                       )
                                                                       .eq(
                                                                         'idCulto',
                                                                         infantilItem
-                                                                            .cultoId,
+                                                                            .cultoId!,
                                                                       ),
                                                             );
                                                             shouldSetState =
@@ -1624,7 +1624,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                               q.eq(
                                                                         'culto_id',
                                                                         widget
-                                                                            .idCulto,
+                                                                            .idCulto!,
                                                                       ),
                                                                     )))
                                                               .future,
@@ -1716,11 +1716,11 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                         matchingRows: (rows) => rows
                                                                             .eq(
                                                                               'idculto',
-                                                                              setlistViewSetlistRow.cultoId,
+                                                                              setlistViewSetlistRow.cultoId!,
                                                                             )
                                                                             .eq(
                                                                               'idmusica',
-                                                                              setlistViewSetlistRow.musica,
+                                                                              setlistViewSetlistRow.musica!,
                                                                             ),
                                                                       );
                                                                       shouldSetState =
