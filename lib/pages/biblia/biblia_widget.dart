@@ -233,7 +233,10 @@ class _BibliaWidgetState extends State<BibliaWidget> {
                                 queryFn: (q) => q
                                     .eq(
                                       'testamento',
-                                      _model.choiceChipsValue!,
+                                      valueOrDefault<String>(
+                                        _model.choiceChipsValue,
+                                        'VELHO TESTAMENTO',
+                                      ),
                                     )
                                     .order('id', ascending: true),
                               ),

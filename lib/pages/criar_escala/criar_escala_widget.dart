@@ -580,35 +580,36 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
-                                                          AutoSizeText(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              listViewVEscalagrupoRow
-                                                                  .nomeUsuario,
-                                                              'padrao',
+                                                          Flexible(
+                                                            child: AutoSizeText(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                listViewVEscalagrupoRow
+                                                                    .nomeUsuario,
+                                                                'padrao',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    fontSize:
+                                                                        18.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize:
-                                                                      18.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
                                                           ),
                                                           Theme(
                                                             data: ThemeData(

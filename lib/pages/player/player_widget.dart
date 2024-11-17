@@ -80,24 +80,48 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      Align(
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 30.0,
+                            ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(1.0, 28.0, 1.0, 8.0),
                         child: Container(
                           width: double.infinity,
                           height: 220.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(0.0),
                           ),
-                          child: FlutterFlowYoutubePlayer(
-                            url:
-                                'https://www.youtube.com/watch?v=${widget.videoId}',
-                            autoPlay: false,
-                            looping: true,
-                            mute: false,
-                            showControls: true,
-                            showFullScreen: true,
-                            strictRelatedVideos: true,
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                2.0, 0.0, 2.0, 0.0),
+                            child: FlutterFlowYoutubePlayer(
+                              url:
+                                  'https://www.youtube.com/watch?v=${widget.videoId}',
+                              autoPlay: false,
+                              looping: true,
+                              mute: false,
+                              showControls: true,
+                              showFullScreen: true,
+                              strictRelatedVideos: true,
+                            ),
                           ),
                         ),
                       ),

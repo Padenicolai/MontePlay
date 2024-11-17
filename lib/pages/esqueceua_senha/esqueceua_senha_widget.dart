@@ -53,7 +53,7 @@ class _EsqueceuaSenhaWidgetState extends State<EsqueceuaSenhaWidget> {
           buttonSize: 60.0,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).primaryText,
+            color: FlutterFlowTheme.of(context).alternate,
             size: 30.0,
           ),
           onPressed: () async {
