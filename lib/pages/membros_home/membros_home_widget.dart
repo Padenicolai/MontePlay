@@ -182,188 +182,198 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                      child: SafeArea(
-                        child: Container(
-                          width: 393.0,
-                          height: 724.0,
-                          decoration: const BoxDecoration(),
-                          child: Padding(
-                            padding: const EdgeInsets.all(18.0),
-                            child: FutureBuilder<List<ViewUsergrupoRow>>(
-                              future: ViewUsergrupoTable().queryRows(
-                                queryFn: (q) => q.eqOrNull(
-                                  'idgrupo',
-                                  widget.grupo,
-                                ),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return const Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: SpinKitRipple(
-                                        color: Color(0xFFCCC9C9),
-                                        size: 50.0,
-                                      ),
-                                    ),
-                                  );
-                                }
-                                List<ViewUsergrupoRow>
-                                    gridViewViewUsergrupoRowList =
-                                    snapshot.data!;
-
-                                return GridView.builder(
-                                  padding: EdgeInsets.zero,
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing: 10.0,
-                                    mainAxisSpacing: 10.0,
-                                    childAspectRatio: 1.0,
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 20.0, 0.0, 50.0),
+                        child: SafeArea(
+                          child: Container(
+                            width: 393.0,
+                            height: MediaQuery.sizeOf(context).height * 1.0,
+                            decoration: const BoxDecoration(),
+                            child: Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: FutureBuilder<List<ViewUsergrupoRow>>(
+                                future: ViewUsergrupoTable().queryRows(
+                                  queryFn: (q) => q.eqOrNull(
+                                    'idgrupo',
+                                    widget.grupo,
                                   ),
-                                  scrollDirection: Axis.vertical,
-                                  itemCount:
-                                      gridViewViewUsergrupoRowList.length,
-                                  itemBuilder: (context, gridViewIndex) {
-                                    final gridViewViewUsergrupoRow =
-                                        gridViewViewUsergrupoRowList[
-                                            gridViewIndex];
-                                    return Padding(
-                                      padding: const EdgeInsets.all(4.0),
-                                      child: Container(
-                                        width: 126.0,
-                                        height: 186.0,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return const Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: SpinKitRipple(
+                                          color: Color(0xFFCCC9C9),
+                                          size: 50.0,
                                         ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                decoration: const BoxDecoration(
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      blurRadius: 8.0,
-                                                      color: Colors.black,
-                                                      offset: Offset(
-                                                        0.0,
-                                                        5.0,
-                                                      ),
-                                                    )
-                                                  ],
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await Navigator.push(
-                                                      context,
-                                                      PageTransition(
-                                                        type: PageTransitionType
-                                                            .fade,
-                                                        child:
-                                                            FlutterFlowExpandedImageView(
-                                                          image: Image.network(
-                                                            valueOrDefault<
+                                      ),
+                                    );
+                                  }
+                                  List<ViewUsergrupoRow>
+                                      gridViewViewUsergrupoRowList =
+                                      snapshot.data!;
+
+                                  return GridView.builder(
+                                    padding: EdgeInsets.zero,
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 10.0,
+                                      mainAxisSpacing: 10.0,
+                                      childAspectRatio: 1.0,
+                                    ),
+                                    scrollDirection: Axis.vertical,
+                                    itemCount:
+                                        gridViewViewUsergrupoRowList.length,
+                                    itemBuilder: (context, gridViewIndex) {
+                                      final gridViewViewUsergrupoRow =
+                                          gridViewViewUsergrupoRowList[
+                                              gridViewIndex];
+                                      return Padding(
+                                        padding: const EdgeInsets.all(4.0),
+                                        child: Container(
+                                          width: 126.0,
+                                          height: 186.0,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  decoration: const BoxDecoration(
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 8.0,
+                                                        color: Colors.black,
+                                                        offset: Offset(
+                                                          0.0,
+                                                          5.0,
+                                                        ),
+                                                      )
+                                                    ],
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await Navigator.push(
+                                                        context,
+                                                        PageTransition(
+                                                          type:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          child:
+                                                              FlutterFlowExpandedImageView(
+                                                            image:
+                                                                Image.network(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                gridViewViewUsergrupoRow
+                                                                    .foto,
+                                                                'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
+                                                              ),
+                                                              fit: BoxFit
+                                                                  .contain,
+                                                            ),
+                                                            allowRotation:
+                                                                false,
+                                                            tag: valueOrDefault<
                                                                 String>(
                                                               gridViewViewUsergrupoRow
                                                                   .foto,
-                                                              'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
+                                                              'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$gridViewIndex',
                                                             ),
-                                                            fit: BoxFit.contain,
+                                                            useHeroAnimation:
+                                                                true,
                                                           ),
-                                                          allowRotation: false,
-                                                          tag: valueOrDefault<
+                                                        ),
+                                                      );
+                                                    },
+                                                    child: Hero(
+                                                      tag: valueOrDefault<
+                                                          String>(
+                                                        gridViewViewUsergrupoRow
+                                                            .foto,
+                                                        'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$gridViewIndex',
+                                                      ),
+                                                      transitionOnUserGestures:
+                                                          true,
+                                                      child: Container(
+                                                        width: 140.0,
+                                                        height: 140.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Image.network(
+                                                          valueOrDefault<
                                                               String>(
                                                             gridViewViewUsergrupoRow
                                                                 .foto,
-                                                            'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$gridViewIndex',
+                                                            'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
                                                           ),
-                                                          useHeroAnimation:
-                                                              true,
+                                                          fit: BoxFit.cover,
                                                         ),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: Hero(
-                                                    tag: valueOrDefault<String>(
-                                                      gridViewViewUsergrupoRow
-                                                          .foto,
-                                                      'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$gridViewIndex',
-                                                    ),
-                                                    transitionOnUserGestures:
-                                                        true,
-                                                    child: Container(
-                                                      width: 140.0,
-                                                      height: 140.0,
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: const BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Image.network(
-                                                        valueOrDefault<String>(
-                                                          gridViewViewUsergrupoRow
-                                                              .foto,
-                                                          'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
-                                                        ),
-                                                        fit: BoxFit.cover,
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              AutoSizeText(
-                                                valueOrDefault<String>(
-                                                  gridViewViewUsergrupoRow
-                                                      .nomeUsuario,
-                                                  'padrao',
+                                                AutoSizeText(
+                                                  valueOrDefault<String>(
+                                                    gridViewViewUsergrupoRow
+                                                        .nomeUsuario,
+                                                    'padrao',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                'Plus Jakarta Sans'),
+                                                      ),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          useGoogleFonts:
-                                                              GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'Plus Jakarta Sans'),
-                                                        ),
-                                              ),
-                                            ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(const SizedBox(height: 8.0)),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),

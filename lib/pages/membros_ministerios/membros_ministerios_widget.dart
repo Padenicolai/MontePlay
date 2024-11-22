@@ -47,142 +47,141 @@ class _MembrosMinisteriosWidgetState extends State<MembrosMinisteriosWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        body: SafeArea(
-          top: true,
-          child: SafeArea(
-            child: Container(
-              height: MediaQuery.sizeOf(context).height * 1.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/fundo_tela_2.png',
-                  ).image,
-                ),
+    return Scaffold(
+      key: scaffoldKey,
+      body: SafeArea(
+        top: true,
+        child: SafeArea(
+          child: Container(
+            height: MediaQuery.sizeOf(context).height * 1.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/fundo_tela_2.png',
+                ).image,
               ),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 4.0,
-                            color: Color(0x33000000),
-                            offset: Offset(
-                              0.0,
-                              5.0,
-                            ),
-                          )
-                        ],
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
-                        ),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          color: Color(0x33000000),
+                          offset: Offset(
+                            0.0,
+                            5.0,
+                          ),
+                        )
+                      ],
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).alternate,
                       ),
-                      child: Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 10.0, 10.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Align(
-                                  alignment: const AlignmentDirectional(-1.0, 1.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed('homeMinisterios');
-                                        },
-                                        child: Icon(
-                                          Icons.arrow_back,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 36.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 2,
+                    ),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Align(
+                                alignment: const AlignmentDirectional(-1.0, 1.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.end,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Align(
-                                      alignment: const AlignmentDirectional(0.0, 1.0),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: Text(
-                                          widget.nomeMinisterio,
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleLarge
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w800,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey(
-                                                            'Montserrat'),
-                                              ),
-                                        ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('homeMinisterios');
+                                      },
+                                      child: Icon(
+                                        Icons.arrow_back,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 36.0,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: 100.0,
-                                      height: 55.0,
-                                      decoration: const BoxDecoration(),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Align(
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 10.0, 0.0),
+                                      child: Text(
+                                        widget.nomeMinisterio,
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 20.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w800,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Montserrat'),
+                                            ),
+                                      ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 100.0,
+                                    height: 55.0,
+                                    decoration: const BoxDecoration(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    Padding(
+                  ),
+                  Flexible(
+                    child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 50.0),
                       child: SafeArea(
                         child: Container(
                           width: 393.0,
-                          height: 743.0,
+                          height: MediaQuery.sizeOf(context).height * 1.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16.0),
                           ),
@@ -365,8 +364,8 @@ class _MembrosMinisteriosWidgetState extends State<MembrosMinisteriosWidget> {
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
