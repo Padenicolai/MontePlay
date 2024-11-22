@@ -68,17 +68,17 @@ class _SwitchFuncaoWidgetState extends State<SwitchFuncaoWidget> {
         } else {
           _model.delFuncao = await FuncoesTable().delete(
             matchingRows: (rows) => rows
-                .eq(
+                .eqOrNull(
                   'user_id',
-                  widget.usuarioId!,
+                  widget.usuarioId,
                 )
-                .eq(
+                .eqOrNull(
                   'u_user',
-                  widget.userId!,
+                  widget.userId,
                 )
-                .eq(
+                .eqOrNull(
                   'ministerios_id',
-                  widget.ministerioId!,
+                  widget.ministerioId,
                 ),
             returnRows: true,
           );

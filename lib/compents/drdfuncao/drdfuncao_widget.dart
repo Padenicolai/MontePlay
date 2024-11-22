@@ -64,13 +64,13 @@ class _DrdfuncaoWidgetState extends State<DrdfuncaoWidget> {
     return FutureBuilder<List<ViewUsuarioFuncaoMinisterioRow>>(
       future: ViewUsuarioFuncaoMinisterioTable().queryRows(
         queryFn: (q) => q
-            .eq(
+            .eqOrNull(
               'idusuario',
-              widget.id!,
+              widget.id,
             )
-            .eq(
+            .eqOrNull(
               'grupo',
-              widget.idGrupo!,
+              widget.idGrupo,
             )
             .order('idministerio', ascending: true),
       ),
@@ -132,9 +132,9 @@ class _DrdfuncaoWidgetState extends State<DrdfuncaoWidget> {
               data: {
                 'ministerio_id': _model.dpdfuncaoValue,
               },
-              matchingRows: (rows) => rows.eq(
+              matchingRows: (rows) => rows.eqOrNull(
                 'id',
-                widget.idEscala!,
+                widget.idEscala,
               ),
             );
           },

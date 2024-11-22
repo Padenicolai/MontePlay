@@ -231,7 +231,7 @@ class _BibliaWidgetState extends State<BibliaWidget> {
                             child: FutureBuilder<List<LivrosBibliaRow>>(
                               future: LivrosBibliaTable().queryRows(
                                 queryFn: (q) => q
-                                    .eq(
+                                    .eqOrNull(
                                       'testamento',
                                       valueOrDefault<String>(
                                         _model.choiceChipsValue,

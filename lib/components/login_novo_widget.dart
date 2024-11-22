@@ -189,7 +189,7 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                                                     .titleMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
-                                            fontSize: 13.0,
+                                            fontSize: 11.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts: GoogleFonts.asMap()
@@ -438,7 +438,7 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                     data: {
                       'fcm_token': FFAppState().token,
                     },
-                    matchingRows: (rows) => rows.eq(
+                    matchingRows: (rows) => rows.eqOrNull(
                       'user_id',
                       currentUserUid,
                     ),

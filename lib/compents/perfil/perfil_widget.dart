@@ -51,7 +51,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
         data: {
           'user_id': widget.userid,
         },
-        matchingRows: (rows) => rows.eq(
+        matchingRows: (rows) => rows.eqOrNull(
           'user_id',
           currentUserUid,
         ),
@@ -78,9 +78,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
           return FutureBuilder<List<UsuariosRow>>(
             future: (_model.requestCompleter ??= Completer<List<UsuariosRow>>()
                   ..complete(UsuariosTable().querySingleRow(
-                    queryFn: (q) => q.eq(
+                    queryFn: (q) => q.eqOrNull(
                       'user_id',
-                      widget.userid!,
+                      widget.userid,
                     ),
                   )))
                 .future,
@@ -556,10 +556,10 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                     child:
                                         FutureBuilder<List<CadastroGrupoRow>>(
                                       future: CadastroGrupoTable().queryRows(
-                                        queryFn: (q) => q.eq(
+                                        queryFn: (q) => q.eqOrNull(
                                           'id_usuario',
-                                          containerPerfilUsuariosRow!
-                                              .usuariosId,
+                                          containerPerfilUsuariosRow
+                                              ?.usuariosId,
                                         ),
                                       ),
                                       builder: (context, snapshot) {
@@ -705,10 +705,10 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                         16.0, 0.0, 16.0, 0.0),
                                     child: FutureBuilder<List<FuncoesRow>>(
                                       future: FuncoesTable().queryRows(
-                                        queryFn: (q) => q.eq(
+                                        queryFn: (q) => q.eqOrNull(
                                           'user_id',
-                                          containerPerfilUsuariosRow!
-                                              .usuariosId,
+                                          containerPerfilUsuariosRow
+                                              ?.usuariosId,
                                         ),
                                       ),
                                       builder: (context, snapshot) {
@@ -1288,7 +1288,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                   GoRouter.of(context).clearRedirectLocation();
 
                                   await UsuariosTable().delete(
-                                    matchingRows: (rows) => rows.eq(
+                                    matchingRows: (rows) => rows.eqOrNull(
                                       'user_id',
                                       currentUserUid,
                                     ),

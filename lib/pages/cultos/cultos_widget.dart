@@ -178,193 +178,196 @@ class _CultosWidgetState extends State<CultosWidget>
                 builder: (context) {
                   final listCultos = ctnCultoCultoRowList.toList();
 
-                  return Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children:
-                        List.generate(listCultos.length, (listCultosIndex) {
-                      final listCultosItem = listCultos[listCultosIndex];
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: 391.0,
-                          height: 74.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            boxShadow: const [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Colors.white,
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
-                                ),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'escala',
-                                queryParameters: {
-                                  'idCulto': serializeParam(
-                                    listCultosItem.id,
-                                    ParamType.int,
+                  return SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children:
+                          List.generate(listCultos.length, (listCultosIndex) {
+                        final listCultosItem = listCultos[listCultosIndex];
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 391.0,
+                            height: 74.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Colors.white,
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
                                   ),
-                                  'data': serializeParam(
-                                    listCultosItem.dataField,
-                                    ParamType.DateTime,
-                                  ),
-                                }.withoutNulls,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.rightToLeft,
-                                  ),
-                                },
-                              );
-                            },
-                            child: Slidable(
-                              endActionPane: ActionPane(
-                                motion: const ScrollMotion(),
-                                extentRatio: 0.5,
-                                children: [
-                                  SlidableAction(
-                                    label: 'Editar',
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context)
-                                            .backgroundComponents,
-                                    icon: Icons.edit_sharp,
-                                    onPressed: (_) async {
-                                      context.pushNamed(
-                                        'criarEscala',
-                                        queryParameters: {
-                                          'idCulto': serializeParam(
-                                            listCultosItem.id,
-                                            ParamType.int,
-                                          ),
-                                          'data': serializeParam(
-                                            listCultosItem.dataField,
-                                            ParamType.DateTime,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-
-                                      _model.apiResult08a = await SupabaseGroup
-                                          .getBloqueiosCall
-                                          .call(
-                                        idCulto:
-                                            'eq.${listCultosItem.id.toString()}',
-                                      );
-
-                                      FFAppState().listaUsuariosBloqueados =
-                                          SupabaseGroup.getBloqueiosCall
-                                              .idUsuario(
-                                                (_model.apiResult08a
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!
-                                              .toList()
-                                              .cast<int>();
-                                      safeSetState(() {});
-
-                                      safeSetState(() {});
-                                    },
-                                  ),
-                                  SlidableAction(
-                                    label: 'Delete',
-                                    backgroundColor: const Color(0xFF520202),
-                                    icon: Icons.delete_forever,
-                                    onPressed: (_) async {
-                                      _model.outDel = await CultoTable().delete(
-                                        matchingRows: (rows) => rows.eq(
-                                          'id',
-                                          listCultosItem.id,
-                                        ),
-                                        returnRows: true,
-                                      );
-
-                                      safeSetState(() {});
-                                    },
-                                  ),
-                                ],
-                              ),
-                              child: Material(
-                                color: Colors.transparent,
-                                child: ListTile(
-                                  leading: const Icon(
-                                    Icons.playlist_add_circle,
-                                    color: Color(0xF0090909),
-                                    size: 40.0,
-                                  ),
-                                  title: Text(
-                                    listCultosItem.nomeCulto!,
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleLargeFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleLargeFamily),
-                                        ),
-                                  ),
-                                  subtitle: Text(
-                                    dateTimeFormat(
-                                      "d/M/y",
-                                      listCultosItem.dataField!,
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'escala',
+                                  queryParameters: {
+                                    'idCulto': serializeParam(
+                                      listCultosItem.id,
+                                      ParamType.int,
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily),
-                                        ),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.arrow_back_ios_new,
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    size: 30.0,
-                                  ),
-                                  tileColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  dense: false,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    'data': serializeParam(
+                                      listCultosItem.dataField,
+                                      ParamType.DateTime,
+                                    ),
+                                  }.withoutNulls,
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.rightToLeft,
+                                    ),
+                                  },
+                                );
+                              },
+                              child: Slidable(
+                                endActionPane: ActionPane(
+                                  motion: const ScrollMotion(),
+                                  extentRatio: 0.5,
+                                  children: [
+                                    SlidableAction(
+                                      label: 'Editar',
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .backgroundComponents,
+                                      icon: Icons.edit_sharp,
+                                      onPressed: (_) async {
+                                        context.pushNamed(
+                                          'criarEscala',
+                                          queryParameters: {
+                                            'idCulto': serializeParam(
+                                              listCultosItem.id,
+                                              ParamType.int,
+                                            ),
+                                            'data': serializeParam(
+                                              listCultosItem.dataField,
+                                              ParamType.DateTime,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+
+                                        _model.apiResult08a =
+                                            await SupabaseGroup.getBloqueiosCall
+                                                .call(
+                                          idCulto:
+                                              'eq.${listCultosItem.id.toString()}',
+                                        );
+
+                                        FFAppState().listaUsuariosBloqueados =
+                                            SupabaseGroup.getBloqueiosCall
+                                                .idUsuario(
+                                                  (_model.apiResult08a
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<int>();
+                                        safeSetState(() {});
+
+                                        safeSetState(() {});
+                                      },
+                                    ),
+                                    SlidableAction(
+                                      label: 'Delete',
+                                      backgroundColor: const Color(0xFF520202),
+                                      icon: Icons.delete_forever,
+                                      onPressed: (_) async {
+                                        _model.outDel =
+                                            await CultoTable().delete(
+                                          matchingRows: (rows) => rows.eqOrNull(
+                                            'id',
+                                            listCultosItem.id,
+                                          ),
+                                          returnRows: true,
+                                        );
+
+                                        safeSetState(() {});
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  child: ListTile(
+                                    leading: const Icon(
+                                      Icons.playlist_add_circle,
+                                      color: Color(0xF0090909),
+                                      size: 40.0,
+                                    ),
+                                    title: Text(
+                                      listCultosItem.nomeCulto!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLargeFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleLargeFamily),
+                                          ),
+                                    ),
+                                    subtitle: Text(
+                                      dateTimeFormat(
+                                        "d/M/y",
+                                        listCultosItem.dataField!,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily),
+                                          ),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.arrow_back_ios_new,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      size: 30.0,
+                                    ),
+                                    tileColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    dense: false,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(0.0),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation']!),
-                      );
-                    })
-                            .divide(const SizedBox(height: 10.0))
-                            .addToStart(const SizedBox(height: 16.0)),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
+                        );
+                      })
+                              .divide(const SizedBox(height: 10.0))
+                              .addToStart(const SizedBox(height: 16.0)),
+                    ),
                   );
                 },
               ),

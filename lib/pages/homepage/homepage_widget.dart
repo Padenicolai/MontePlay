@@ -52,7 +52,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
             data: {
               'user_id': currentUserUid,
             },
-            matchingRows: (rows) => rows.eq(
+            matchingRows: (rows) => rows.eqOrNull(
               'user_id',
               currentUserUid,
             ),
@@ -2324,7 +2324,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                           _model.outdestaque =
                                                                               await DestaquesTable().delete(
                                                                             matchingRows: (rows) =>
-                                                                                rows.eq(
+                                                                                rows.eqOrNull(
                                                                               'id',
                                                                               pageViewDestaquesRow.id,
                                                                             ),

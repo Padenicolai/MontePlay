@@ -785,11 +785,11 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget>
                                         'foto': _model.uploadedFileUrl,
                                       },
                                       matchingRows: (rows) => rows
-                                          .eq(
+                                          .eqOrNull(
                                             'usuarios_id',
                                             widget.id,
                                           )
-                                          .eq(
+                                          .eqOrNull(
                                             'user_id',
                                             widget.userId,
                                           ),
@@ -811,11 +811,11 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget>
                                         ),
                                       },
                                       matchingRows: (rows) => rows
-                                          .eq(
+                                          .eqOrNull(
                                             'usuarios_id',
                                             widget.id,
                                           )
-                                          .eq(
+                                          .eqOrNull(
                                             'user_id',
                                             widget.userId,
                                           ),
@@ -834,11 +834,11 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget>
                                             _model.datePicked),
                                       },
                                       matchingRows: (rows) => rows
-                                          .eq(
+                                          .eqOrNull(
                                             'usuarios_id',
                                             widget.id,
                                           )
-                                          .eq(
+                                          .eqOrNull(
                                             'user_id',
                                             widget.userId,
                                           ),
@@ -857,11 +857,11 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget>
                                             _model.yourCelTextController.text,
                                       },
                                       matchingRows: (rows) => rows
-                                          .eq(
+                                          .eqOrNull(
                                             'usuarios_id',
                                             widget.id,
                                           )
-                                          .eq(
+                                          .eqOrNull(
                                             'user_id',
                                             widget.userId,
                                           ),

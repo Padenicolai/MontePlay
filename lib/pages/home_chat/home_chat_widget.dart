@@ -157,7 +157,7 @@ class _HomeChatWidgetState extends State<HomeChatWidget> {
                           const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                       child: FutureBuilder<List<ChatsRow>>(
                         future: ChatsTable().queryRows(
-                          queryFn: (q) => q.contains(
+                          queryFn: (q) => q.containsOrNull(
                             'chat_members',
                             '{$currentUserUid}',
                           ),
@@ -260,7 +260,7 @@ class _HomeChatWidgetState extends State<HomeChatWidget> {
                                             ) ??
                                             false;
                                     _model.delete = await ChatsTable().delete(
-                                      matchingRows: (rows) => rows.eq(
+                                      matchingRows: (rows) => rows.eqOrNull(
                                         'id',
                                         listViewChatsRow.id,
                                       ),
@@ -271,7 +271,7 @@ class _HomeChatWidgetState extends State<HomeChatWidget> {
                                   },
                                   child: Container(
                                     width: 100.0,
-                                    height: 70.0,
+                                    height: 78.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -320,34 +320,35 @@ class _HomeChatWidgetState extends State<HomeChatWidget> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  valueOrDefault<String>(
-                                                    listViewChatsRow.chatName,
-                                                    'Padrao',
+                                                Flexible(
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      listViewChatsRow.chatName,
+                                                      'Padrao',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          fontSize: 13.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
                                                 ),
                                                 Flexible(
                                                   child: Text(
@@ -370,7 +371,7 @@ class _HomeChatWidgetState extends State<HomeChatWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .alternate,
-                                                          fontSize: 12.0,
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -418,7 +419,7 @@ class _HomeChatWidgetState extends State<HomeChatWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .alternate,
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()

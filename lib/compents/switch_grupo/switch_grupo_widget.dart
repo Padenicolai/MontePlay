@@ -70,13 +70,13 @@ class _SwitchGrupoWidgetState extends State<SwitchGrupoWidget> {
           safeSetState(() {});
           _model.delGrupo = await CadastroGrupoTable().delete(
             matchingRows: (rows) => rows
-                .eq(
+                .eqOrNull(
                   'id_usuario',
-                  widget.usuarioId!,
+                  widget.usuarioId,
                 )
-                .eq(
+                .eqOrNull(
                   'id_grupo',
-                  widget.grupoId!,
+                  widget.grupoId,
                 ),
             returnRows: true,
           );

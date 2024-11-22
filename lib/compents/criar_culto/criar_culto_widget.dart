@@ -31,7 +31,7 @@ class _CriarCultoWidgetState extends State<CriarCultoWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-    _model.textFieldFocusNode!.addListener(() => safeSetState(() {}));
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -129,20 +129,22 @@ class _CriarCultoWidgetState extends State<CriarCultoWidget> {
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Digite o nome aqui...',
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
+                              isDense: true,
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
-                                        .labelMediumFamily,
-                                    color: Colors.black,
+                                        .bodyMediumFamily,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)
-                                                .labelMediumFamily),
+                                                .bodyMediumFamily),
                                   ),
+                              hintText: 'Digite o nome aqui...',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color(0xFB767474),

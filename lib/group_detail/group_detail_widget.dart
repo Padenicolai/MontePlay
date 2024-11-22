@@ -56,17 +56,17 @@ class _GroupDetailWidgetState extends State<GroupDetailWidget> {
     return FutureBuilder<List<ChatsRow>>(
       future: ChatsTable().querySingleRow(
         queryFn: (q) => q
-            .eq(
+            .eqOrNull(
               'id',
-              widget.chatId!,
+              widget.chatId,
             )
-            .eq(
+            .eqOrNull(
               'id',
-              widget.chatId!,
+              widget.chatId,
             )
-            .overlaps(
+            .overlapsOrNull(
               'chat_members',
-              widget.chatMembers!,
+              widget.chatMembers,
             ),
       ),
       builder: (context, snapshot) {
@@ -350,9 +350,9 @@ class _GroupDetailWidgetState extends State<GroupDetailWidget> {
                                   ),
                                   child: FutureBuilder<List<UsuariosRow>>(
                                     future: UsuariosTable().queryRows(
-                                      queryFn: (q) => q.in_(
+                                      queryFn: (q) => q.inFilterOrNull(
                                         'user_id',
-                                        groupDetailChatsRow!.chatMembers,
+                                        groupDetailChatsRow?.chatMembers,
                                       ),
                                     ),
                                     builder: (context, snapshot) {
@@ -556,9 +556,9 @@ class _GroupDetailWidgetState extends State<GroupDetailWidget> {
                                                   widget.chatMembers!.toList(),
                                                   currentUserUid),
                                         },
-                                        matchingRows: (rows) => rows.eq(
+                                        matchingRows: (rows) => rows.eqOrNull(
                                           'id',
-                                          widget.chatId!,
+                                          widget.chatId,
                                         ),
                                       );
 

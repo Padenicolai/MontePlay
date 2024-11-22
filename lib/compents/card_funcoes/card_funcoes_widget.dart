@@ -169,7 +169,7 @@ class _CardFuncoesWidgetState extends State<CardFuncoesWidget> {
                           child: FutureBuilder<List<MinisteriosRow>>(
                             future: MinisteriosTable().queryRows(
                               queryFn: (q) => q
-                                  .in_(
+                                  .inFilterOrNull(
                                     'idGrupo',
                                     FFAppState().listaUsuariosBloqueados,
                                   )

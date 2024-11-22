@@ -303,13 +303,13 @@ class _BibliacapitulosWidgetState extends State<BibliacapitulosWidget> {
                                         List<VersiculosBibliaRow>>(
                                       future: VersiculosBibliaTable().queryRows(
                                         queryFn: (q) => q
-                                            .eq(
+                                            .eqOrNull(
                                               'id_livro',
-                                              widget.idLivro!,
+                                              widget.idLivro,
                                             )
-                                            .eq(
+                                            .eqOrNull(
                                               'capitulo',
-                                              _model.capituloAtual!,
+                                              _model.capituloAtual,
                                             )
                                             .order('versiculo',
                                                 ascending: true),

@@ -38,9 +38,9 @@ class _ContactDetailWidgetState extends State<ContactDetailWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.contatoDetalhe = await UsuariosTable().queryRows(
-        queryFn: (q) => q.eq(
+        queryFn: (q) => q.eqOrNull(
           'nomeUsuario',
-          widget.nome!,
+          widget.nome,
         ),
       );
     });
@@ -210,9 +210,9 @@ class _ContactDetailWidgetState extends State<ContactDetailWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               await ChatsTable().delete(
-                                matchingRows: (rows) => rows.eq(
+                                matchingRows: (rows) => rows.eqOrNull(
                                   'id',
-                                  widget.chatId!,
+                                  widget.chatId,
                                 ),
                               );
 

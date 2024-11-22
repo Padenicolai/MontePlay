@@ -49,9 +49,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.membersData = await UsuariosTable().queryRows(
-        queryFn: (q) => q.in_(
+        queryFn: (q) => q.inFilterOrNull(
           'user_id',
-          widget.chatMembers!,
+          widget.chatMembers,
         ),
       );
       _model.apiResultwlh = await SupabaseGroup.getUsuariosCall.call();
@@ -60,14 +60,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
         'messages',
       );
       await Future.delayed(const Duration(milliseconds: 300));
-      await actions.subscribe(
-        'messages',
-        () async {
-          safeSetState(() => _model.requestCompleter = null);
-          await _model.waitForRequestCompleted();
-        },
-        widget.chatId!,
-      );
       safeSetState(() => _model.requestCompleter = null);
     });
 
@@ -226,9 +218,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                     future: (_model.requestCompleter ??=
                             Completer<List<MessagesRow>>()
                               ..complete(MessagesTable().queryRows(
-                                queryFn: (q) => q.eq(
+                                queryFn: (q) => q.eqOrNull(
                                   'reciepient_id',
-                                  widget.chatId!,
+                                  widget.chatId,
                                 ),
                               )))
                         .future,

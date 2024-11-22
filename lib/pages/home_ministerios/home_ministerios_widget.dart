@@ -198,7 +198,7 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                         const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 15.0),
                     child: FutureBuilder<List<UsuariosRow>>(
                       future: UsuariosTable().querySingleRow(
-                        queryFn: (q) => q.eq(
+                        queryFn: (q) => q.eqOrNull(
                           'user_id',
                           currentUserUid,
                         ),
@@ -386,17 +386,17 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                     child: FutureBuilder<List<ViewUsuarioCultoUnicosRow>>(
                       future: ViewUsuarioCultoUnicosTable().queryRows(
                         queryFn: (q) => q
-                            .eq(
+                            .eqOrNull(
                               'user_id',
                               currentUserUid,
                             )
-                            .eq(
+                            .eqOrNull(
                               'usuarios_id',
                               SupabaseGroup.getUsuariosCall.usuarioId(
                                 (_model.outUser?.jsonBody ?? ''),
-                              )!,
+                              ),
                             )
-                            .gte(
+                            .gteOrNull(
                               'data',
                               supaSerialize<DateTime>(getCurrentTimestamp),
                             )

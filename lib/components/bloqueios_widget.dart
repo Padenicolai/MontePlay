@@ -202,9 +202,9 @@ class _BloqueiosWidgetState extends State<BloqueiosWidget> {
               future:
                   (_model.requestCompleter ??= Completer<List<VBloqueiosRow>>()
                         ..complete(VBloqueiosTable().queryRows(
-                          queryFn: (q) => q.eq(
+                          queryFn: (q) => q.eqOrNull(
                             'usuario_id',
-                            widget.usuario!,
+                            widget.usuario,
                           ),
                         )))
                       .future,
@@ -292,9 +292,9 @@ class _BloqueiosWidgetState extends State<BloqueiosWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         await BloqueiosTable().delete(
-                                          matchingRows: (rows) => rows.eq(
+                                          matchingRows: (rows) => rows.eqOrNull(
                                             'id',
-                                            listViewVBloqueiosRow.id!,
+                                            listViewVBloqueiosRow.id,
                                           ),
                                         );
                                         safeSetState(() =>
