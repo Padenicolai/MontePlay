@@ -308,1009 +308,951 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              Flexible(
-                                                flex: 2,
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 550.0,
-                                                  decoration: const BoxDecoration(),
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final louvor =
-                                                          tabBarViewEscalaRowList
-                                                              .where((e) =>
-                                                                  e.grupoId ==
-                                                                  1)
-                                                              .toList();
+                                              Builder(
+                                                builder: (context) {
+                                                  final louvor =
+                                                      tabBarViewEscalaRowList
+                                                          .where((e) =>
+                                                              e.grupoId == 1)
+                                                          .toList();
 
-                                                      return ReorderableListView
-                                                          .builder(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        scrollDirection:
-                                                            Axis.vertical,
-                                                        itemCount:
-                                                            louvor.length,
-                                                        itemBuilder: (context,
-                                                            louvorIndex) {
-                                                          final louvorItem =
-                                                              louvor[
-                                                                  louvorIndex];
-                                                          return Container(
-                                                            key: ValueKey(
-                                                                "ListView_5zs614pn" '_' +
-                                                                    louvorIndex
-                                                                        .toString()),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0,
-                                                                          8.0),
-                                                              child: InkWell(
-                                                                splashColor: Colors
+                                                  return ReorderableListView
+                                                      .builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount: louvor.length,
+                                                    itemBuilder:
+                                                        (context, louvorIndex) {
+                                                      final louvorItem =
+                                                          louvor[louvorIndex];
+                                                      return Container(
+                                                        key: ValueKey(
+                                                            "ListView_5zs614pn" '_' +
+                                                                louvorIndex
+                                                                    .toString()),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      0.0,
+                                                                      5.0,
+                                                                      8.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
                                                                     .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onLongPress:
-                                                                    () async {
-                                                                  var shouldSetState =
-                                                                      false;
-                                                                  // louvor
-                                                                  var confirmDialogResponse =
-                                                                      await showDialog<
-                                                                              bool>(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  title: const Text('ATENÇÃO'),
-                                                                                  content: const Text('Sair da escala?'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                      child: const Text('Não'),
-                                                                                    ),
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                      child: const Text('Sim'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ) ??
-                                                                          false;
-                                                                  if (confirmDialogResponse) {
-                                                                    await EscalaTable()
-                                                                        .delete(
-                                                                      matchingRows: (rows) => rows
-                                                                          .eqOrNull(
-                                                                            'usuarios_id',
-                                                                            louvorItem.usuarioId,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'ministerio_id',
-                                                                            louvorItem.ministerioId,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'idCulto',
-                                                                            louvorItem.cultoId,
-                                                                          ),
-                                                                    );
-                                                                    shouldSetState =
-                                                                        true;
-                                                                  } else {
-                                                                    if (shouldSetState) {
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    }
-                                                                    return;
-                                                                  }
-
-                                                                  await NotEscalaTable()
-                                                                      .insert({
-                                                                    'titulo':
-                                                                        'Cancelamento de participação!',
-                                                                    'corpo':
-                                                                        'O integrante ${louvorItem.usuario} cancelou a participação na função de ${louvorItem.nomeMinisterio} no culto de ${louvorItem.culto}',
-                                                                    'fcmtoken':
-                                                                        FFAppState()
-                                                                            .fcmTokenAdmins,
-                                                                  });
-                                                                  if (shouldSetState) {
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  }
-                                                                },
-                                                                child: Material(
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  elevation:
-                                                                      2.0,
-                                                                  shape:
-                                                                      RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            0.0),
-                                                                  ),
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        65.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: const Color(
-                                                                          0xFFC6CACE),
-                                                                      boxShadow: const [
-                                                                        BoxShadow(
-                                                                          blurRadius:
-                                                                              4.0,
-                                                                          color:
-                                                                              Color(0x68000000),
-                                                                          offset:
-                                                                              Offset(
-                                                                            0.0,
-                                                                            2.0,
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              0.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        width:
-                                                                            2.0,
-                                                                      ),
-                                                                    ),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Expanded(
-                                                                          flex:
-                                                                              3,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(4.0),
+                                                            onLongPress:
+                                                                () async {
+                                                              var shouldSetState =
+                                                                  false;
+                                                              // louvor
+                                                              var confirmDialogResponse =
+                                                                  await showDialog<
+                                                                          bool>(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
                                                                             child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Expanded(
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            louvorItem.nomeMinisterio,
-                                                                                            'padrao',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Montserrat',
-                                                                                                color: const Color(0xFF1C136D),
-                                                                                                fontSize: 14.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.bold,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
+                                                                                AlertDialog(
+                                                                              title: const Text('ATENÇÃO'),
+                                                                              content: const Text('Sair da escala?'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: const Text('Não'),
                                                                                 ),
-                                                                                Expanded(
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                        child: AutoSizeText(
-                                                                                          valueOrDefault<String>(
-                                                                                            louvorItem.usuario,
-                                                                                            'padrao',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                                fontSize: 13.0,
-                                                                                                letterSpacing: 3.0,
-                                                                                                fontWeight: FontWeight.w500,
-                                                                                                shadows: [
-                                                                                                  Shadow(
-                                                                                                    color: FlutterFlowTheme.of(context).alternate,
-                                                                                                    offset: const Offset(1.0, 1.0),
-                                                                                                    blurRadius: 1.0,
-                                                                                                  )
-                                                                                                ],
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ].divide(const SizedBox(height: 2.0)),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          flex:
-                                                                              1,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(4.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              children: [
-                                                                                ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                  child: Image.network(
-                                                                                    valueOrDefault<String>(
-                                                                                      louvorItem.icon,
-                                                                                      'https://batsss.co/wp-content/uploads/2024/04/v2-9w1a3-jdozr.jpg',
-                                                                                    ),
-                                                                                    width: 45.0,
-                                                                                    height: 45.0,
-                                                                                    fit: BoxFit.cover,
-                                                                                  ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: const Text('Sim'),
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                        onReorder: (int
-                                                                reorderableOldIndex,
-                                                            int reorderableNewIndex) async {},
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                            ]
-                                                .divide(const SizedBox(height: 28.0))
-                                                .addToStart(
-                                                    const SizedBox(height: 10.0)),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                flex: 2,
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 550.0,
-                                                  decoration: const BoxDecoration(),
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final danca =
-                                                          tabBarViewEscalaRowList
-                                                              .where((e) =>
-                                                                  e.grupoId ==
-                                                                  2)
-                                                              .toList();
-
-                                                      return ReorderableListView
-                                                          .builder(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        scrollDirection:
-                                                            Axis.vertical,
-                                                        itemCount: danca.length,
-                                                        itemBuilder: (context,
-                                                            dancaIndex) {
-                                                          final dancaItem =
-                                                              danca[dancaIndex];
-                                                          return Container(
-                                                            key: ValueKey(
-                                                                "ListView_ud860yev" '_' +
-                                                                    dancaIndex
-                                                                        .toString()),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0,
-                                                                          8.0),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onLongPress:
-                                                                    () async {
-                                                                  var shouldSetState =
+                                                                          );
+                                                                        },
+                                                                      ) ??
                                                                       false;
-                                                                  // louvor
-                                                                  var confirmDialogResponse =
-                                                                      await showDialog<
-                                                                              bool>(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  title: const Text('ATENÇÃO'),
-                                                                                  content: const Text('Sair da escala?'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                      child: const Text('Não'),
-                                                                                    ),
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                      child: const Text('Sim'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ) ??
-                                                                          false;
-                                                                  if (confirmDialogResponse) {
-                                                                    await EscalaTable()
-                                                                        .delete(
-                                                                      matchingRows: (rows) => rows
-                                                                          .eqOrNull(
-                                                                            'usuarios_id',
-                                                                            dancaItem.usuarioId,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'ministerio_id',
-                                                                            dancaItem.ministerioId,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'idCulto',
-                                                                            dancaItem.cultoId,
-                                                                          ),
-                                                                    );
-                                                                    shouldSetState =
-                                                                        true;
-                                                                  } else {
-                                                                    if (shouldSetState) {
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    }
-                                                                    return;
-                                                                  }
-
-                                                                  await NotEscalaTable()
-                                                                      .insert({
-                                                                    'titulo':
-                                                                        'Cancelamento de participação!',
-                                                                    'corpo':
-                                                                        'O integrante ${dancaItem.usuario} cancelou a participação no ${dancaItem.nomeMinisterio} no culto de${dancaItem.culto}',
-                                                                    'fcmtoken':
-                                                                        FFAppState()
-                                                                            .fcmTokenAdmins,
-                                                                  });
-                                                                  if (shouldSetState) {
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  }
-                                                                },
-                                                                child: Material(
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  elevation:
-                                                                      2.0,
-                                                                  shape:
-                                                                      RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            0.0),
-                                                                  ),
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        65.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: const Color(
-                                                                          0xFFC6CACE),
-                                                                      boxShadow: const [
-                                                                        BoxShadow(
-                                                                          blurRadius:
-                                                                              4.0,
-                                                                          color:
-                                                                              Color(0x68000000),
-                                                                          offset:
-                                                                              Offset(
-                                                                            0.0,
-                                                                            2.0,
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              0.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        width:
-                                                                            2.0,
+                                                              if (confirmDialogResponse) {
+                                                                await EscalaTable()
+                                                                    .delete(
+                                                                  matchingRows: (rows) => rows
+                                                                      .eqOrNull(
+                                                                        'usuarios_id',
+                                                                        louvorItem
+                                                                            .usuarioId,
+                                                                      )
+                                                                      .eqOrNull(
+                                                                        'ministerio_id',
+                                                                        louvorItem
+                                                                            .ministerioId,
+                                                                      )
+                                                                      .eqOrNull(
+                                                                        'idCulto',
+                                                                        louvorItem
+                                                                            .cultoId,
                                                                       ),
-                                                                    ),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Expanded(
-                                                                          flex:
-                                                                              3,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(4.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Expanded(
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            dancaItem.nomeMinisterio,
-                                                                                            'padrao',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Montserrat',
-                                                                                                color: const Color(0xFF1C136D),
-                                                                                                fontSize: 14.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.bold,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                                Expanded(
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                        child: AutoSizeText(
-                                                                                          valueOrDefault<String>(
-                                                                                            dancaItem.usuario,
-                                                                                            'padrao',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                                fontSize: 12.0,
-                                                                                                letterSpacing: 3.0,
-                                                                                                fontWeight: FontWeight.bold,
-                                                                                                shadows: [
-                                                                                                  Shadow(
-                                                                                                    color: FlutterFlowTheme.of(context).alternate,
-                                                                                                    offset: const Offset(1.0, 1.0),
-                                                                                                    blurRadius: 1.0,
-                                                                                                  )
-                                                                                                ],
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ].divide(const SizedBox(height: 4.0)),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          flex:
-                                                                              1,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(4.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              children: [
-                                                                                ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                  child: Image.network(
-                                                                                    valueOrDefault<String>(
-                                                                                      dancaItem.icon,
-                                                                                      'https://batsss.co/wp-content/uploads/2024/04/v2-9w1a3-jdozr.jpg',
-                                                                                    ),
-                                                                                    width: 45.0,
-                                                                                    height: 45.0,
-                                                                                    fit: BoxFit.cover,
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                        onReorder: (int
-                                                                reorderableOldIndex,
-                                                            int reorderableNewIndex) async {},
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                            ]
-                                                .divide(const SizedBox(height: 28.0))
-                                                .addToStart(
-                                                    const SizedBox(height: 10.0)),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                flex: 2,
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 550.0,
-                                                  decoration: const BoxDecoration(),
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final midia =
-                                                          tabBarViewEscalaRowList
-                                                              .where((e) =>
-                                                                  e.grupoId ==
-                                                                  3)
-                                                              .toList();
+                                                                );
+                                                                shouldSetState =
+                                                                    true;
+                                                              } else {
+                                                                if (shouldSetState) {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                }
+                                                                return;
+                                                              }
 
-                                                      return ReorderableListView
-                                                          .builder(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        scrollDirection:
-                                                            Axis.vertical,
-                                                        itemCount: midia.length,
-                                                        itemBuilder: (context,
-                                                            midiaIndex) {
-                                                          final midiaItem =
-                                                              midia[midiaIndex];
-                                                          return Container(
-                                                            key: ValueKey(
-                                                                "ListView_1yagnynb" '_' +
-                                                                    midiaIndex
-                                                                        .toString()),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0,
-                                                                          8.0),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onLongPress:
-                                                                    () async {
-                                                                  var shouldSetState =
-                                                                      false;
-                                                                  // louvor
-                                                                  var confirmDialogResponse =
-                                                                      await showDialog<
-                                                                              bool>(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  title: const Text('ATENÇÃO'),
-                                                                                  content: const Text('Sair da escala?'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                      child: const Text('Não'),
-                                                                                    ),
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                      child: const Text('Sim'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ) ??
-                                                                          false;
-                                                                  if (confirmDialogResponse) {
-                                                                    await EscalaTable()
-                                                                        .delete(
-                                                                      matchingRows: (rows) => rows
-                                                                          .eqOrNull(
-                                                                            'usuarios_id',
-                                                                            midiaItem.usuarioId,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'ministerio_id',
-                                                                            midiaItem.ministerioId,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'idCulto',
-                                                                            midiaItem.cultoId,
-                                                                          ),
-                                                                    );
-                                                                    shouldSetState =
-                                                                        true;
-                                                                  } else {
-                                                                    if (shouldSetState) {
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    }
-                                                                    return;
-                                                                  }
-
-                                                                  await NotEscalaTable()
-                                                                      .insert({
-                                                                    'titulo':
-                                                                        'Cancelamento de participação!',
-                                                                    'corpo':
-                                                                        'O integrante ${midiaItem.usuario} cancelou a participação na função de ${midiaItem.nomeMinisterio} no culto de ${midiaItem.culto}',
-                                                                    'fcmtoken':
-                                                                        FFAppState()
-                                                                            .fcmTokenAdmins,
-                                                                  });
-                                                                  if (shouldSetState) {
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  }
-                                                                },
-                                                                child: Material(
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  elevation:
-                                                                      2.0,
-                                                                  shape:
-                                                                      RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
+                                                              await NotEscalaTable()
+                                                                  .insert({
+                                                                'titulo':
+                                                                    'Cancelamento de participação!',
+                                                                'corpo':
+                                                                    'O integrante ${louvorItem.usuario} cancelou a participação na função de ${louvorItem.nomeMinisterio} no culto de ${louvorItem.culto}',
+                                                                'fcmtoken':
+                                                                    FFAppState()
+                                                                        .fcmTokenAdmins,
+                                                              });
+                                                              if (shouldSetState) {
+                                                                safeSetState(
+                                                                    () {});
+                                                              }
+                                                            },
+                                                            child: Material(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              elevation: 2.0,
+                                                              shape:
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
                                                                             0.0),
-                                                                  ),
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        65.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: const Color(
-                                                                          0xFFC6CACE),
-                                                                      boxShadow: const [
-                                                                        BoxShadow(
-                                                                          blurRadius:
-                                                                              4.0,
-                                                                          color:
-                                                                              Color(0x68000000),
-                                                                          offset:
-                                                                              Offset(
-                                                                            0.0,
-                                                                            2.0,
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              0.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        width:
-                                                                            2.0,
-                                                                      ),
-                                                                    ),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Expanded(
-                                                                          flex:
-                                                                              3,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(4.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Expanded(
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            midiaItem.nomeMinisterio,
-                                                                                            'padrao',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Montserrat',
-                                                                                                color: const Color(0xFF1C136D),
-                                                                                                fontSize: 14.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.bold,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                                Expanded(
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Padding(
-                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                        child: AutoSizeText(
-                                                                                          valueOrDefault<String>(
-                                                                                            midiaItem.usuario,
-                                                                                            'padrao',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                                fontSize: 12.0,
-                                                                                                letterSpacing: 3.0,
-                                                                                                fontWeight: FontWeight.bold,
-                                                                                                shadows: [
-                                                                                                  Shadow(
-                                                                                                    color: FlutterFlowTheme.of(context).alternate,
-                                                                                                    offset: const Offset(1.0, 1.0),
-                                                                                                    blurRadius: 1.0,
-                                                                                                  )
-                                                                                                ],
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ].divide(const SizedBox(height: 4.0)),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          flex:
-                                                                              1,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.all(4.0),
-                                                                            child:
-                                                                                Column(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              children: [
-                                                                                ClipRRect(
-                                                                                  borderRadius: BorderRadius.circular(8.0),
-                                                                                  child: Image.network(
-                                                                                    valueOrDefault<String>(
-                                                                                      midiaItem.icon,
-                                                                                      'https://batsss.co/wp-content/uploads/2024/04/v2-9w1a3-jdozr.jpg',
-                                                                                    ),
-                                                                                    width: 45.0,
-                                                                                    height: 45.0,
-                                                                                    fit: BoxFit.cover,
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
                                                               ),
-                                                            ),
-                                                          );
-                                                        },
-                                                        onReorder: (int
-                                                                reorderableOldIndex,
-                                                            int reorderableNewIndex) async {},
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                            ]
-                                                .divide(const SizedBox(height: 28.0))
-                                                .addToStart(
-                                                    const SizedBox(height: 10.0)),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              flex: 2,
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 100.0,
-                                                decoration: const BoxDecoration(),
-                                                child: Builder(
-                                                  builder: (context) {
-                                                    final infantil =
-                                                        tabBarViewEscalaRowList
-                                                            .where((e) =>
-                                                                e.grupoId == 4)
-                                                            .toList();
-
-                                                    return ReorderableListView
-                                                        .builder(
-                                                      padding: EdgeInsets.zero,
-                                                      scrollDirection:
-                                                          Axis.vertical,
-                                                      itemCount:
-                                                          infantil.length,
-                                                      itemBuilder: (context,
-                                                          infantilIndex) {
-                                                        final infantilItem =
-                                                            infantil[
-                                                                infantilIndex];
-                                                        return Container(
-                                                          key: ValueKey(
-                                                              "ListView_0ppt7465" '_' +
-                                                                  infantilIndex
-                                                                      .toString()),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        5.0,
+                                                              child: Container(
+                                                                width: 100.0,
+                                                                height: 65.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: const Color(
+                                                                      0xFFC6CACE),
+                                                                  boxShadow: const [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          4.0,
+                                                                      color: Color(
+                                                                          0x68000000),
+                                                                      offset:
+                                                                          Offset(
                                                                         0.0,
-                                                                        5.0,
-                                                                        8.0),
-                                                            child: InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onLongPress:
-                                                                  () async {
-                                                                var shouldSetState =
-                                                                    false;
-                                                                // louvor
-                                                                var confirmDialogResponse =
-                                                                    await showDialog<
-                                                                            bool>(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (alertDialogContext) {
-                                                                            return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                                title: const Text('ATENÇÃO'),
-                                                                                content: const Text('Sair da escala?'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                    child: const Text('Não'),
-                                                                                  ),
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                    child: const Text('Sim'),
+                                                                        2.0,
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    width: 2.0,
+                                                                  ),
+                                                                ),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      flex: 3,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.all(4.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children:
+                                                                              [
+                                                                            Expanded(
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      valueOrDefault<String>(
+                                                                                        louvorItem.nomeMinisterio,
+                                                                                        'padrao',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Montserrat',
+                                                                                            color: const Color(0xFF1C136D),
+                                                                                            fontSize: 14.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
+                                                                                          ),
+                                                                                    ),
                                                                                   ),
                                                                                 ],
                                                                               ),
-                                                                            );
-                                                                          },
-                                                                        ) ??
-                                                                        false;
-                                                                if (confirmDialogResponse) {
-                                                                  await EscalaTable()
-                                                                      .delete(
-                                                                    matchingRows: (rows) => rows
+                                                                            ),
+                                                                            Expanded(
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                    child: AutoSizeText(
+                                                                                      valueOrDefault<String>(
+                                                                                        louvorItem.usuario,
+                                                                                        'padrao',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                            color: FlutterFlowTheme.of(context).alternate,
+                                                                                            fontSize: 13.0,
+                                                                                            letterSpacing: 3.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ].divide(const SizedBox(height: 2.0)),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 1,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.all(4.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              child: Image.network(
+                                                                                valueOrDefault<String>(
+                                                                                  louvorItem.icon,
+                                                                                  'https://batsss.co/wp-content/uploads/2024/04/v2-9w1a3-jdozr.jpg',
+                                                                                ),
+                                                                                width: 45.0,
+                                                                                height: 45.0,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                    onReorder: (int
+                                                            reorderableOldIndex,
+                                                        int reorderableNewIndex) async {},
+                                                  );
+                                                },
+                                              ),
+                                            ]
+                                                .divide(const SizedBox(height: 28.0))
+                                                .addToStart(
+                                                    const SizedBox(height: 10.0)),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Builder(
+                                                builder: (context) {
+                                                  final danca =
+                                                      tabBarViewEscalaRowList
+                                                          .where((e) =>
+                                                              e.grupoId == 2)
+                                                          .toList();
+
+                                                  return ReorderableListView
+                                                      .builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount: danca.length,
+                                                    itemBuilder:
+                                                        (context, dancaIndex) {
+                                                      final dancaItem =
+                                                          danca[dancaIndex];
+                                                      return Container(
+                                                        key: ValueKey(
+                                                            "ListView_ud860yev" '_' +
+                                                                dancaIndex
+                                                                    .toString()),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      0.0,
+                                                                      5.0,
+                                                                      8.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onLongPress:
+                                                                () async {
+                                                              var shouldSetState =
+                                                                  false;
+                                                              // louvor
+                                                              var confirmDialogResponse =
+                                                                  await showDialog<
+                                                                          bool>(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              title: const Text('ATENÇÃO'),
+                                                                              content: const Text('Sair da escala?'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: const Text('Não'),
+                                                                                ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: const Text('Sim'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ) ??
+                                                                      false;
+                                                              if (confirmDialogResponse) {
+                                                                await EscalaTable()
+                                                                    .delete(
+                                                                  matchingRows: (rows) => rows
+                                                                      .eqOrNull(
+                                                                        'usuarios_id',
+                                                                        dancaItem
+                                                                            .usuarioId,
+                                                                      )
+                                                                      .eqOrNull(
+                                                                        'ministerio_id',
+                                                                        dancaItem
+                                                                            .ministerioId,
+                                                                      )
+                                                                      .eqOrNull(
+                                                                        'idCulto',
+                                                                        dancaItem
+                                                                            .cultoId,
+                                                                      ),
+                                                                );
+                                                                shouldSetState =
+                                                                    true;
+                                                              } else {
+                                                                if (shouldSetState) {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                }
+                                                                return;
+                                                              }
+
+                                                              await NotEscalaTable()
+                                                                  .insert({
+                                                                'titulo':
+                                                                    'Cancelamento de participação!',
+                                                                'corpo':
+                                                                    'O integrante ${dancaItem.usuario} cancelou a participação no ${dancaItem.nomeMinisterio} no culto de${dancaItem.culto}',
+                                                                'fcmtoken':
+                                                                    FFAppState()
+                                                                        .fcmTokenAdmins,
+                                                              });
+                                                              if (shouldSetState) {
+                                                                safeSetState(
+                                                                    () {});
+                                                              }
+                                                            },
+                                                            child: Material(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              elevation: 2.0,
+                                                              shape:
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            0.0),
+                                                              ),
+                                                              child: Container(
+                                                                width: 100.0,
+                                                                height: 65.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: const Color(
+                                                                      0xFFC6CACE),
+                                                                  boxShadow: const [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          4.0,
+                                                                      color: Color(
+                                                                          0x68000000),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        2.0,
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    width: 2.0,
+                                                                  ),
+                                                                ),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      flex: 3,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.all(4.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children:
+                                                                              [
+                                                                            Expanded(
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      valueOrDefault<String>(
+                                                                                        dancaItem.nomeMinisterio,
+                                                                                        'padrao',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Montserrat',
+                                                                                            color: const Color(0xFF1C136D),
+                                                                                            fontSize: 14.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                    child: AutoSizeText(
+                                                                                      valueOrDefault<String>(
+                                                                                        dancaItem.usuario,
+                                                                                        'padrao',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                            color: FlutterFlowTheme.of(context).alternate,
+                                                                                            fontSize: 12.0,
+                                                                                            letterSpacing: 3.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ].divide(const SizedBox(height: 4.0)),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 1,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.all(4.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              child: Image.network(
+                                                                                valueOrDefault<String>(
+                                                                                  dancaItem.icon,
+                                                                                  'https://batsss.co/wp-content/uploads/2024/04/v2-9w1a3-jdozr.jpg',
+                                                                                ),
+                                                                                width: 45.0,
+                                                                                height: 45.0,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                    onReorder: (int
+                                                            reorderableOldIndex,
+                                                        int reorderableNewIndex) async {},
+                                                  );
+                                                },
+                                              ),
+                                            ]
+                                                .divide(const SizedBox(height: 28.0))
+                                                .addToStart(
+                                                    const SizedBox(height: 10.0)),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Builder(
+                                                builder: (context) {
+                                                  final midia =
+                                                      tabBarViewEscalaRowList
+                                                          .where((e) =>
+                                                              e.grupoId == 3)
+                                                          .toList();
+
+                                                  return ReorderableListView
+                                                      .builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount: midia.length,
+                                                    itemBuilder:
+                                                        (context, midiaIndex) {
+                                                      final midiaItem =
+                                                          midia[midiaIndex];
+                                                      return Container(
+                                                        key: ValueKey(
+                                                            "ListView_1yagnynb" '_' +
+                                                                midiaIndex
+                                                                    .toString()),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      0.0,
+                                                                      5.0,
+                                                                      8.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onLongPress:
+                                                                () async {
+                                                              var shouldSetState =
+                                                                  false;
+                                                              // louvor
+                                                              var confirmDialogResponse =
+                                                                  await showDialog<
+                                                                          bool>(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (alertDialogContext) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              title: const Text('ATENÇÃO'),
+                                                                              content: const Text('Sair da escala?'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: const Text('Não'),
+                                                                                ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: const Text('Sim'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ) ??
+                                                                      false;
+                                                              if (confirmDialogResponse) {
+                                                                await EscalaTable()
+                                                                    .delete(
+                                                                  matchingRows: (rows) => rows
+                                                                      .eqOrNull(
+                                                                        'usuarios_id',
+                                                                        midiaItem
+                                                                            .usuarioId,
+                                                                      )
+                                                                      .eqOrNull(
+                                                                        'ministerio_id',
+                                                                        midiaItem
+                                                                            .ministerioId,
+                                                                      )
+                                                                      .eqOrNull(
+                                                                        'idCulto',
+                                                                        midiaItem
+                                                                            .cultoId,
+                                                                      ),
+                                                                );
+                                                                shouldSetState =
+                                                                    true;
+                                                              } else {
+                                                                if (shouldSetState) {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                }
+                                                                return;
+                                                              }
+
+                                                              await NotEscalaTable()
+                                                                  .insert({
+                                                                'titulo':
+                                                                    'Cancelamento de participação!',
+                                                                'corpo':
+                                                                    'O integrante ${midiaItem.usuario} cancelou a participação na função de ${midiaItem.nomeMinisterio} no culto de ${midiaItem.culto}',
+                                                                'fcmtoken':
+                                                                    FFAppState()
+                                                                        .fcmTokenAdmins,
+                                                              });
+                                                              if (shouldSetState) {
+                                                                safeSetState(
+                                                                    () {});
+                                                              }
+                                                            },
+                                                            child: Material(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              elevation: 2.0,
+                                                              shape:
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            0.0),
+                                                              ),
+                                                              child: Container(
+                                                                width: 100.0,
+                                                                height: 65.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: const Color(
+                                                                      0xFFC6CACE),
+                                                                  boxShadow: const [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          4.0,
+                                                                      color: Color(
+                                                                          0x68000000),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        2.0,
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    width: 2.0,
+                                                                  ),
+                                                                ),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      flex: 3,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.all(4.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children:
+                                                                              [
+                                                                            Expanded(
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      valueOrDefault<String>(
+                                                                                        midiaItem.nomeMinisterio,
+                                                                                        'padrao',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Montserrat',
+                                                                                            color: const Color(0xFF1C136D),
+                                                                                            fontSize: 14.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                            Expanded(
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                    child: AutoSizeText(
+                                                                                      valueOrDefault<String>(
+                                                                                        midiaItem.usuario,
+                                                                                        'padrao',
+                                                                                      ),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                            color: FlutterFlowTheme.of(context).alternate,
+                                                                                            fontSize: 12.0,
+                                                                                            letterSpacing: 3.0,
+                                                                                            fontWeight: FontWeight.bold,
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ].divide(const SizedBox(height: 4.0)),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Expanded(
+                                                                      flex: 1,
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.all(4.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              child: Image.network(
+                                                                                valueOrDefault<String>(
+                                                                                  midiaItem.icon,
+                                                                                  'https://batsss.co/wp-content/uploads/2024/04/v2-9w1a3-jdozr.jpg',
+                                                                                ),
+                                                                                width: 45.0,
+                                                                                height: 45.0,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                    onReorder: (int
+                                                            reorderableOldIndex,
+                                                        int reorderableNewIndex) async {},
+                                                  );
+                                                },
+                                              ),
+                                            ]
+                                                .divide(const SizedBox(height: 28.0))
+                                                .addToStart(
+                                                    const SizedBox(height: 10.0)),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Builder(
+                                                builder: (context) {
+                                                  final infantil =
+                                                      tabBarViewEscalaRowList
+                                                          .where((e) =>
+                                                              e.grupoId == 4)
+                                                          .toList();
+
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount: infantil.length,
+                                                    itemBuilder: (context,
+                                                        infantilIndex) {
+                                                      final infantilItem =
+                                                          infantil[
+                                                              infantilIndex];
+                                                      return Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    8.0),
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onLongPress:
+                                                              () async {
+                                                            var shouldSetState =
+                                                                false;
+                                                            // louvor
+                                                            var confirmDialogResponse =
+                                                                await showDialog<
+                                                                        bool>(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (alertDialogContext) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            title:
+                                                                                const Text('ATENÇÃO'),
+                                                                            content:
+                                                                                const Text('Sair da escala?'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: const Text('Não'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: const Text('Sim'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ) ??
+                                                                    false;
+                                                            if (confirmDialogResponse) {
+                                                              await EscalaTable()
+                                                                  .delete(
+                                                                matchingRows:
+                                                                    (rows) => rows
                                                                         .eqOrNull(
                                                                           'usuarios_id',
                                                                           infantilItem
@@ -1326,201 +1268,193 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                           infantilItem
                                                                               .cultoId,
                                                                         ),
-                                                                  );
-                                                                  shouldSetState =
-                                                                      true;
-                                                                } else {
-                                                                  if (shouldSetState) {
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  }
-                                                                  return;
-                                                                }
+                                                              );
+                                                              shouldSetState =
+                                                                  true;
+                                                            } else {
+                                                              if (shouldSetState) {
+                                                                safeSetState(
+                                                                    () {});
+                                                              }
+                                                              return;
+                                                            }
 
-                                                                await NotEscalaTable()
-                                                                    .insert({
-                                                                  'titulo':
-                                                                      'Cancelamento de participação!',
-                                                                  'corpo':
-                                                                      'O integrante ${infantilItem.usuario} cancelou a participação como ${infantilItem.nomeMinisterio} no culto de ${infantilItem.culto}',
-                                                                  'fcmtoken':
-                                                                      FFAppState()
-                                                                          .fcmTokenAdmins,
-                                                                });
-                                                                if (shouldSetState) {
-                                                                  safeSetState(
-                                                                      () {});
-                                                                }
-                                                              },
-                                                              child: Material(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                elevation: 2.0,
-                                                                shape:
-                                                                    RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              0.0),
-                                                                ),
-                                                                child:
-                                                                    Container(
-                                                                  width: 100.0,
-                                                                  height: 65.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: const Color(
-                                                                        0xFFC6CACE),
-                                                                    boxShadow: const [
-                                                                      BoxShadow(
-                                                                        blurRadius:
-                                                                            4.0,
-                                                                        color: Color(
-                                                                            0x68000000),
-                                                                        offset:
-                                                                            Offset(
-                                                                          0.0,
-                                                                          2.0,
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
+                                                            await NotEscalaTable()
+                                                                .insert({
+                                                              'titulo':
+                                                                  'Cancelamento de participação!',
+                                                              'corpo':
+                                                                  'O integrante ${infantilItem.usuario} cancelou a participação como ${infantilItem.nomeMinisterio} no culto de ${infantilItem.culto}',
+                                                              'fcmtoken':
+                                                                  FFAppState()
+                                                                      .fcmTokenAdmins,
+                                                            });
+                                                            if (shouldSetState) {
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+                                                          },
+                                                          child: Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 2.0,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          0.0),
+                                                            ),
+                                                            child: Container(
+                                                              width: 100.0,
+                                                              height: 65.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: const Color(
+                                                                    0xFFC6CACE),
+                                                                boxShadow: const [
+                                                                  BoxShadow(
+                                                                    blurRadius:
+                                                                        4.0,
+                                                                    color: Color(
+                                                                        0x68000000),
+                                                                    offset:
+                                                                        Offset(
+                                                                      0.0,
+                                                                      2.0,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
                                                                             0.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      width:
-                                                                          2.0,
+                                                                border:
+                                                                    Border.all(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  width: 2.0,
+                                                                ),
+                                                              ),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 3,
+                                                                    child:
+                                                                        Padding(
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                              4.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children:
+                                                                            [
+                                                                          Expanded(
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    valueOrDefault<String>(
+                                                                                      infantilItem.nomeMinisterio,
+                                                                                      'padrao',
+                                                                                    ),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Montserrat',
+                                                                                          color: const Color(0xFF1C136D),
+                                                                                          fontSize: 14.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.bold,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                          Expanded(
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                  child: AutoSizeText(
+                                                                                    valueOrDefault<String>(
+                                                                                      infantilItem.usuario,
+                                                                                      'padrao',
+                                                                                    ),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                          color: FlutterFlowTheme.of(context).alternate,
+                                                                                          fontSize: 12.0,
+                                                                                          letterSpacing: 3.0,
+                                                                                          fontWeight: FontWeight.bold,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ].divide(const SizedBox(height: 4.0)),
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Expanded(
-                                                                        flex: 3,
-                                                                        child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              const EdgeInsets.all(4.0),
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children:
-                                                                                [
-                                                                              Expanded(
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        valueOrDefault<String>(
-                                                                                          infantilItem.nomeMinisterio,
-                                                                                          'padrao',
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Montserrat',
-                                                                                              color: const Color(0xFF1C136D),
-                                                                                              fontSize: 14.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.bold,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey('Montserrat'),
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                              Expanded(
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Padding(
-                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                      child: AutoSizeText(
-                                                                                        valueOrDefault<String>(
-                                                                                          infantilItem.usuario,
-                                                                                          'padrao',
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              color: FlutterFlowTheme.of(context).alternate,
-                                                                                              fontSize: 12.0,
-                                                                                              letterSpacing: 3.0,
-                                                                                              fontWeight: FontWeight.bold,
-                                                                                              shadows: [
-                                                                                                Shadow(
-                                                                                                  color: FlutterFlowTheme.of(context).alternate,
-                                                                                                  offset: const Offset(1.0, 1.0),
-                                                                                                  blurRadius: 1.0,
-                                                                                                )
-                                                                                              ],
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                            ].divide(const SizedBox(height: 4.0)),
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child:
+                                                                        Padding(
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                              4.0),
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.center,
+                                                                        children: [
+                                                                          ClipRRect(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                            child:
+                                                                                Image.network(
+                                                                              infantilItem.icon!,
+                                                                              width: 45.0,
+                                                                              height: 45.0,
+                                                                              fit: BoxFit.cover,
+                                                                            ),
                                                                           ),
-                                                                        ),
+                                                                        ],
                                                                       ),
-                                                                      Expanded(
-                                                                        flex: 1,
-                                                                        child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              const EdgeInsets.all(4.0),
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
-                                                                            children: [
-                                                                              ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                child: Image.network(
-                                                                                  infantilItem.icon!,
-                                                                                  width: 45.0,
-                                                                                  height: 45.0,
-                                                                                  fit: BoxFit.cover,
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
+                                                                    ),
                                                                   ),
-                                                                ),
+                                                                ],
                                                               ),
                                                             ),
                                                           ),
-                                                        );
-                                                      },
-                                                      onReorder: (int
-                                                              reorderableOldIndex,
-                                                          int reorderableNewIndex) async {},
-                                                    );
-                                                  },
-                                                ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                },
                                               ),
-                                            ),
-                                          ]
-                                              .divide(const SizedBox(height: 28.0))
-                                              .addToStart(
-                                                  const SizedBox(height: 10.0)),
+                                            ]
+                                                .divide(const SizedBox(height: 28.0))
+                                                .addToStart(
+                                                    const SizedBox(height: 10.0)),
+                                          ),
                                         ),
                                       ),
                                       Padding(
