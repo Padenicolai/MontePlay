@@ -280,24 +280,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const RepertorioMinisteriosWidget(),
         ),
         FFRoute(
-          name: 'membrosMinisterios',
-          path: '/membrosMinisterios',
-          builder: (context, params) => MembrosMinisteriosWidget(
-            grupo: params.getParam(
-              'grupo',
-              ParamType.int,
-            ),
-            nomeMinisterio: params.getParam(
-              'nomeMinisterio',
-              ParamType.String,
-            ),
-            img: params.getParam(
-              'img',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'membrosHome',
           path: '/membrosHome',
           builder: (context, params) => MembrosHomeWidget(
@@ -331,6 +313,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             youtube: params.getParam(
               'youtube',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'membrosHomeCopy',
+          path: '/membrosHomeCopy',
+          builder: (context, params) => MembrosHomeCopyWidget(
+            grupo: params.getParam(
+              'grupo',
+              ParamType.int,
+            ),
+            nomeMinisterio: params.getParam(
+              'nomeMinisterio',
               ParamType.String,
             ),
           ),

@@ -708,7 +708,7 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'membrosMinisterios',
+                                                  'membrosHomeCopy',
                                                   queryParameters: {
                                                     'grupo': serializeParam(
                                                       listViewViewTotalGrupoRow
@@ -719,11 +719,6 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                                                         serializeParam(
                                                       listViewViewTotalGrupoRow
                                                           .nomeGrupo,
-                                                      ParamType.String,
-                                                    ),
-                                                    'img': serializeParam(
-                                                      listViewViewTotalGrupoRow
-                                                          .imagem,
                                                       ParamType.String,
                                                     ),
                                                   }.withoutNulls,

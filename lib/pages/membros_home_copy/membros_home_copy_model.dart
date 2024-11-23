@@ -1,9 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'membros_ministerios_widget.dart' show MembrosMinisteriosWidget;
+import 'membros_home_copy_widget.dart' show MembrosHomeCopyWidget;
 import 'package:flutter/material.dart';
 
-class MembrosMinisteriosModel
-    extends FlutterFlowModel<MembrosMinisteriosWidget> {
+class MembrosHomeCopyModel extends FlutterFlowModel<MembrosHomeCopyWidget> {
   @override
   void initState(BuildContext context) {}
 

@@ -23,8 +23,8 @@ export '/pages/escala/escala_widget.dart' show EscalaWidget;
 export '/login/login_widget.dart' show LoginWidget;
 export '/pages/repertorio_ministerios/repertorio_ministerios_widget.dart'
     show RepertorioMinisteriosWidget;
-export '/pages/membros_ministerios/membros_ministerios_widget.dart'
-    show MembrosMinisteriosWidget;
 export '/pages/membros_home/membros_home_widget.dart' show MembrosHomeWidget;
 export '/pages/player/player_widget.dart' show PlayerWidget;
 export '/pages/ministracoes/ministracoes_widget.dart' show MinistracoesWidget;
+export '/pages/membros_home_copy/membros_home_copy_widget.dart'
+    show MembrosHomeCopyWidget;

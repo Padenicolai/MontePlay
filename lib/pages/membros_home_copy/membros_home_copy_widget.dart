@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'membros_home_model.dart';
-export 'membros_home_model.dart';
+import 'membros_home_copy_model.dart';
+export 'membros_home_copy_model.dart';
 
-class MembrosHomeWidget extends StatefulWidget {
-  const MembrosHomeWidget({
+class MembrosHomeCopyWidget extends StatefulWidget {
+  const MembrosHomeCopyWidget({
     super.key,
     required this.grupo,
     String? nomeMinisterio,
@@ -21,18 +21,18 @@ class MembrosHomeWidget extends StatefulWidget {
   final String nomeMinisterio;
 
   @override
-  State<MembrosHomeWidget> createState() => _MembrosHomeWidgetState();
+  State<MembrosHomeCopyWidget> createState() => _MembrosHomeCopyWidgetState();
 }
 
-class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
-  late MembrosHomeModel _model;
+class _MembrosHomeCopyWidgetState extends State<MembrosHomeCopyWidget> {
+  late MembrosHomeCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MembrosHomeModel());
+    _model = createModel(context, () => MembrosHomeCopyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -108,8 +108,7 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context
-                                            .pushNamed('colaboradoresIgreja');
+                                        context.safePop();
                                       },
                                       child: Icon(
                                         Icons.arrow_back,
@@ -228,152 +227,138 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
                                         staggeredViewIndex];
                                 return Padding(
                                   padding: const EdgeInsets.all(4.0),
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    elevation: 0.0,
-                                    shape: RoundedRectangleBorder(
+                                  child: Container(
+                                    width: 126.0,
+                                    height: 186.0,
+                                    decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    child: Container(
-                                      width: 126.0,
-                                      height: 186.0,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              decoration: const BoxDecoration(
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    blurRadius: 8.0,
-                                                    color: Colors.black,
-                                                    offset: Offset(
-                                                      0.0,
-                                                      5.0,
-                                                    ),
-                                                  )
-                                                ],
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  await Navigator.push(
-                                                    context,
-                                                    PageTransition(
-                                                      type: PageTransitionType
-                                                          .fade,
-                                                      child:
-                                                          FlutterFlowExpandedImageView(
-                                                        image: Image.network(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            staggeredViewViewUsergrupoRow
-                                                                .foto,
-                                                            'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
-                                                          ),
-                                                          fit: BoxFit.contain,
-                                                        ),
-                                                        allowRotation: false,
-                                                        tag: valueOrDefault<
-                                                            String>(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            decoration: const BoxDecoration(
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 8.0,
+                                                  color: Colors.black,
+                                                  offset: Offset(
+                                                    0.0,
+                                                    5.0,
+                                                  ),
+                                                )
+                                              ],
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  PageTransition(
+                                                    type:
+                                                        PageTransitionType.fade,
+                                                    child:
+                                                        FlutterFlowExpandedImageView(
+                                                      image: Image.network(
+                                                        valueOrDefault<String>(
                                                           staggeredViewViewUsergrupoRow
                                                               .foto,
-                                                          'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$staggeredViewIndex',
+                                                          'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
                                                         ),
-                                                        useHeroAnimation: true,
+                                                        fit: BoxFit.contain,
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                                child: Hero(
-                                                  tag: valueOrDefault<String>(
-                                                    staggeredViewViewUsergrupoRow
-                                                        .foto,
-                                                    'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$staggeredViewIndex',
-                                                  ),
-                                                  transitionOnUserGestures:
-                                                      true,
-                                                  child: Container(
-                                                    width: 140.0,
-                                                    height: 140.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      valueOrDefault<String>(
+                                                      allowRotation: false,
+                                                      tag: valueOrDefault<
+                                                          String>(
                                                         staggeredViewViewUsergrupoRow
                                                             .foto,
-                                                        'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
+                                                        'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$staggeredViewIndex',
                                                       ),
-                                                      fit: BoxFit.cover,
+                                                      useHeroAnimation: true,
                                                     ),
+                                                  ),
+                                                );
+                                              },
+                                              child: Hero(
+                                                tag: valueOrDefault<String>(
+                                                  staggeredViewViewUsergrupoRow
+                                                      .foto,
+                                                  'https://cdn-icons-png.flaticon.com/512/4675/4675159.png' '$staggeredViewIndex',
+                                                ),
+                                                transitionOnUserGestures: true,
+                                                child: Container(
+                                                  width: 140.0,
+                                                  height: 140.0,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: const BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.network(
+                                                    valueOrDefault<String>(
+                                                      staggeredViewViewUsergrupoRow
+                                                          .foto,
+                                                      'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
+                                                    ),
+                                                    fit: BoxFit.cover,
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                            Flexible(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Flexible(
-                                                    child: Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: AutoSizeText(
-                                                        valueOrDefault<String>(
-                                                          staggeredViewViewUsergrupoRow
-                                                              .nomeUsuario,
-                                                          'padrao',
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Plus Jakarta Sans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Plus Jakarta Sans'),
-                                                                ),
+                                          ),
+                                          Flexible(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Flexible(
+                                                  child: Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      valueOrDefault<String>(
+                                                        staggeredViewViewUsergrupoRow
+                                                            .nomeUsuario,
+                                                        'padrao',
                                                       ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
+                                                          ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
-                                          ].divide(const SizedBox(height: 8.0)),
-                                        ),
+                                          ),
+                                        ].divide(const SizedBox(height: 8.0)),
                                       ),
                                     ),
                                   ),

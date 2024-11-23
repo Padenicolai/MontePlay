@@ -1297,6 +1297,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                 } else {
                                   return;
                                 }
+
+                                context.pushNamedAuth(
+                                    'Homepage', context.mounted);
                               },
                               child: Material(
                                 color: Colors.transparent,

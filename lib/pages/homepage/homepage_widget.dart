@@ -471,31 +471,38 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                   0.0, 0.0),
                                               child: Stack(
                                                 children: [
-                                                  Container(
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        width: 5.0,
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          width: 3.0,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    child:
-                                                        FlutterFlowYoutubePlayer(
-                                                      url:
-                                                          'https://www.youtube.com/watch?v=${PastoresGroup.apirepertorioCall.videoid(
-                                                                (_model.apiResultLive
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )?.first}',
-                                                      autoPlay: false,
-                                                      looping: true,
-                                                      mute: false,
-                                                      showControls: true,
-                                                      showFullScreen: true,
-                                                      strictRelatedVideos:
-                                                          false,
+                                                      child:
+                                                          FlutterFlowYoutubePlayer(
+                                                        url:
+                                                            'https://www.youtube.com/watch?v=${PastoresGroup.apirepertorioCall.videoid(
+                                                                  (_model.apiResultLive
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first}',
+                                                        autoPlay: false,
+                                                        looping: true,
+                                                        mute: false,
+                                                        showControls: true,
+                                                        showFullScreen: true,
+                                                        strictRelatedVideos:
+                                                            true,
+                                                      ),
                                                     ),
                                                   ),
                                                   Align(

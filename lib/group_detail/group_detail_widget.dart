@@ -195,6 +195,7 @@ class _GroupDetailWidgetState extends State<GroupDetailWidget> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: SingleChildScrollView(
+                            primary: false,
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
