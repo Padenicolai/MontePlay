@@ -349,7 +349,7 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                         const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -373,6 +373,29 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                               ),
                             ),
                           ],
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('cultosGeral');
+                          },
+                          child: Text(
+                            'Ver todas',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily),
+                                ),
+                          ),
                         ),
                       ],
                     ),
@@ -568,7 +591,7 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                                           size: 15.0,
                                         ),
                                         options: FFButtonOptions(
-                                          width: 118.0,
+                                          width: 169.0,
                                           height: 40.0,
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -585,6 +608,7 @@ class _HomeMinisteriosWidgetState extends State<HomeMinisteriosWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmallFamily,
                                                 color: Colors.white,
+                                                fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: GoogleFonts
                                                         .asMap()

@@ -225,7 +225,7 @@ class _CardGrupoWidgetState extends State<CardGrupoWidget> {
                                                                   'Montserrat',
                                                               color: const Color(
                                                                   0xFF14181B),
-                                                              fontSize: 18.0,
+                                                              fontSize: 14.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:

@@ -100,27 +100,29 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(1.0, 28.0, 1.0, 8.0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 220.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(0.0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                2.0, 0.0, 2.0, 0.0),
-                            child: FlutterFlowYoutubePlayer(
-                              url:
-                                  'https://www.youtube.com/watch?v=${widget.videoId}',
-                              autoPlay: false,
-                              looping: true,
-                              mute: false,
-                              showControls: true,
-                              showFullScreen: true,
-                              strictRelatedVideos: true,
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              3.0, 28.0, 3.0, 8.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 220.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(0.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  2.0, 0.0, 2.0, 0.0),
+                              child: FlutterFlowYoutubePlayer(
+                                url:
+                                    'https://www.youtube.com/watch?v=${widget.videoId}',
+                                autoPlay: false,
+                                looping: true,
+                                mute: false,
+                                showControls: true,
+                                showFullScreen: true,
+                                strictRelatedVideos: true,
+                              ),
                             ),
                           ),
                         ),

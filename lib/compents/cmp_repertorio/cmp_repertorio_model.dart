@@ -12,15 +12,21 @@ class CmpRepertorioModel extends FlutterFlowModel<CmpRepertorioWidget> {
 
   ///  State fields for stateful widgets in this component.
 
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
   // Stores action output result for [Backend Call - Insert Row] action in IconButton widget.
   RepertorioCultoRow? insertMusic;
   Completer<ApiCallResponse>? apiRequestCompleter;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    listViewController = ScrollController();
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    listViewController?.dispose();
+  }
 
   /// Additional helper methods.
   Future waitForApiRequestCompleted({

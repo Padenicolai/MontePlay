@@ -130,6 +130,7 @@ class _CriarCultoWidgetState extends State<CriarCultoWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: true,
+                              labelText: 'Digite o nome do culto',
                               labelStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -144,7 +145,6 @@ class _CriarCultoWidgetState extends State<CriarCultoWidget> {
                                             FlutterFlowTheme.of(context)
                                                 .bodyMediumFamily),
                                   ),
-                              hintText: 'Digite o nome aqui...',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Color(0xFB767474),

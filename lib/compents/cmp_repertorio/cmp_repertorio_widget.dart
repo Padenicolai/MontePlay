@@ -56,30 +56,30 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
           decoration: const BoxDecoration(
             color: Color(0xFF181818),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    FlutterFlowIconButton(
-                      borderRadius: 20.0,
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      icon: const Icon(
-                        Icons.close,
-                        color: Color(0xFFF0F2F4),
-                        size: 26.0,
-                      ),
-                      onPressed: () async {
-                        Navigator.pop(context);
-                      },
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FlutterFlowIconButton(
+                    borderRadius: 20.0,
+                    borderWidth: 1.0,
+                    buttonSize: 40.0,
+                    icon: const Icon(
+                      Icons.close,
+                      color: Color(0xFFF0F2F4),
+                      size: 26.0,
                     ),
-                  ],
-                ),
-                Padding(
+                    onPressed: () async {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
+              Flexible(
+                child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: FutureBuilder<ApiCallResponse>(
                     future: (_model.apiRequestCompleter ??=
@@ -213,11 +213,17 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                               .spaceAround,
                                                       children: [
                                                         FlutterFlowIconButton(
-                                                          borderRadius: 20.0,
+                                                          borderRadius: 0.0,
                                                           borderWidth: 1.0,
                                                           buttonSize: 49.0,
                                                           hoverColor:
-                                                              const Color(0x8057636C),
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryText,
+                                                          hoverIconColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .alternate,
                                                           icon: const Icon(
                                                             Icons.add,
                                                             color: Color(
@@ -246,7 +252,9 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                                       TextStyle(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondary,
+                                                                        .alternate,
+                                                                    fontSize:
+                                                                        12.0,
                                                                   ),
                                                                 ),
                                                                 duration: const Duration(
@@ -292,7 +300,7 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .titleMediumFamily,
-                                                          fontSize: 12.0,
+                                                          fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -329,7 +337,7 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                               'Montserrat',
                                                           color:
                                                               const Color(0xFFF7F7F8),
-                                                          fontSize: 12.0,
+                                                          fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
                                                               GoogleFonts
@@ -349,16 +357,19 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                 ),
                               );
                             },
+                            controller: _model.listViewController,
                           );
                         },
                       );
                     },
                   ),
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Container(
                       width: 391.0,
                       height: 50.0,
                       decoration: BoxDecoration(
@@ -384,6 +395,11 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                               safeSetState(
                                   () => _model.apiRequestCompleter = null);
                               await _model.waitForApiRequestCompleted();
+                              await _model.listViewController?.animateTo(
+                                0,
+                                duration: const Duration(milliseconds: 100),
+                                curve: Curves.ease,
+                              );
                             },
                           ),
                           FlutterFlowIconButton(
@@ -401,15 +417,20 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                               safeSetState(() {});
                               safeSetState(
                                   () => _model.apiRequestCompleter = null);
+                              await _model.listViewController?.animateTo(
+                                0,
+                                duration: const Duration(milliseconds: 100),
+                                curve: Curves.ease,
+                              );
                             },
                           ),
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ],

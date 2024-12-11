@@ -112,7 +112,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
               size: 28.0,
             ),
             onPressed: () async {
-              context.pushNamed('cultos');
+              context.pushNamed('homeMinisterios');
             },
           ),
           actions: const [],
@@ -1383,7 +1383,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                                                                                   child: AutoSizeText(
                                                                                     valueOrDefault<String>(
                                                                                       infantilItem.usuario,
@@ -1393,7 +1393,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                                           fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                           color: FlutterFlowTheme.of(context).alternate,
                                                                                           fontSize: 12.0,
-                                                                                          letterSpacing: 3.0,
+                                                                                          letterSpacing: 2.0,
                                                                                           fontWeight: FontWeight.bold,
                                                                                           useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
@@ -1406,32 +1406,36 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  Expanded(
+                                                                  Flexible(
                                                                     flex: 1,
                                                                     child:
-                                                                        Padding(
-                                                                      padding:
-                                                                          const EdgeInsets.all(
-                                                                              4.0),
+                                                                        Align(
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              1.0,
+                                                                              0.0),
                                                                       child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children: [
-                                                                          ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              infantilItem.icon!,
-                                                                              width: 45.0,
-                                                                              height: 45.0,
-                                                                              fit: BoxFit.cover,
+                                                                          Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.all(4.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              child: Image.network(
+                                                                                infantilItem.icon!,
+                                                                                width: 45.0,
+                                                                                height: 45.0,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                        ],
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),

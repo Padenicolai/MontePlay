@@ -57,6 +57,7 @@ class _FuncaoWidgetState extends State<FuncaoWidget> {
           style: FlutterFlowTheme.of(context).titleLarge.override(
                 fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
                 color: Colors.black,
+                fontSize: 16.0,
                 letterSpacing: 0.0,
                 useGoogleFonts: GoogleFonts.asMap()
                     .containsKey(FlutterFlowTheme.of(context).titleLargeFamily),

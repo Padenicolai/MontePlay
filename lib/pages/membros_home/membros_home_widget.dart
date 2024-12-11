@@ -355,7 +355,7 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
                                                                           context)
                                                                       .primaryText,
                                                                   fontSize:
-                                                                      16.0,
+                                                                      14.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:

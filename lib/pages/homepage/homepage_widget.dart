@@ -557,72 +557,186 @@ class _HomepageWidgetState extends State<HomepageWidget>
                               ],
                             ),
                           ),
-                        Container(
-                          width: 327.0,
-                          height: 81.0,
-                          decoration: const BoxDecoration(),
-                          child: Stack(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            children: [
-                              if (FFAppState().esconder == false)
-                                Align(
-                                  alignment: const AlignmentDirectional(0.4, 0.06),
-                                  child: Text(
-                                    'Conheça nossas redes sociais!',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
-                                        ),
-                                  ),
-                                ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.9, 0.53),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  child: Container(
-                                    width: 302.0,
-                                    height: 90.0,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0x014B39EF),
-                                      borderRadius: BorderRadius.circular(20.0),
+                        Flexible(
+                          child: Container(
+                            width: 327.0,
+                            height: 81.0,
+                            decoration: const BoxDecoration(),
+                            child: Stack(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              children: [
+                                if (FFAppState().esconder == false)
+                                  Align(
+                                    alignment: const AlignmentDirectional(0.4, 0.06),
+                                    child: Text(
+                                      'Conheça nossas redes sociais!',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
                                     ),
-                                    child: Stack(
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 2.0, 0.0),
-                                            child: SingleChildScrollView(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                1.0, 0.0),
-                                                        child: Container(
+                                  ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.9, 0.53),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    child: Container(
+                                      width: 302.0,
+                                      height: 90.0,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0x014B39EF),
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 8.0, 2.0, 0.0),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
+                                                  children: [
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Container(
+                                                            width: 70.0,
+                                                            height: 75.0,
+                                                            decoration:
+                                                                const BoxDecoration(
+                                                              color: Color(
+                                                                  0x00FFFFFF),
+                                                            ),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                MouseRegion(
+                                                                  opaque: false,
+                                                                  cursor: MouseCursor
+                                                                          .defer ??
+                                                                      MouseCursor
+                                                                          .defer,
+                                                                  onEnter:
+                                                                      ((event) async {
+                                                                    safeSetState(() =>
+                                                                        _model.mouseRegionHovered1 =
+                                                                            true);
+                                                                    if (animationsMap[
+                                                                            'containerOnActionTriggerAnimation3'] !=
+                                                                        null) {
+                                                                      animationsMap[
+                                                                              'containerOnActionTriggerAnimation3']!
+                                                                          .controller
+                                                                          .forward()
+                                                                          .whenComplete(animationsMap['containerOnActionTriggerAnimation3']!
+                                                                              .controller
+                                                                              .reverse);
+                                                                    }
+                                                                  }),
+                                                                  onExit:
+                                                                      ((event) async {
+                                                                    safeSetState(() =>
+                                                                        _model.mouseRegionHovered1 =
+                                                                            false);
+                                                                  }),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await launchURL(
+                                                                          'https://www.facebook.com/icmsagudos/?locale=pt_BR');
+                                                                    },
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          60.0,
+                                                                      height:
+                                                                          60.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        image:
+                                                                            DecorationImage(
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                          image:
+                                                                              Image.asset(
+                                                                            'assets/images/facebook.png',
+                                                                          ).image,
+                                                                        ),
+                                                                        boxShadow: const [
+                                                                          BoxShadow(
+                                                                            blurRadius:
+                                                                                4.0,
+                                                                            color:
+                                                                                Color(0xA3000000),
+                                                                            offset:
+                                                                                Offset(
+                                                                              0.0,
+                                                                              2.0,
+                                                                            ),
+                                                                          )
+                                                                        ],
+                                                                        shape: BoxShape
+                                                                            .circle,
+                                                                      ),
+                                                                    ),
+                                                                  ).animateOnActionTrigger(
+                                                                    animationsMap[
+                                                                        'containerOnActionTriggerAnimation3']!,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ).animateOnActionTrigger(
+                                                            animationsMap[
+                                                                'containerOnActionTriggerAnimation2']!,
+                                                          ),
+                                                        ),
+                                                        Container(
                                                           width: 70.0,
                                                           height: 75.0,
                                                           decoration:
@@ -647,16 +761,16 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                 onEnter:
                                                                     ((event) async {
                                                                   safeSetState(() =>
-                                                                      _model.mouseRegionHovered1 =
+                                                                      _model.mouseRegionHovered2 =
                                                                           true);
                                                                   if (animationsMap[
-                                                                          'containerOnActionTriggerAnimation3'] !=
+                                                                          'containerOnActionTriggerAnimation5'] !=
                                                                       null) {
                                                                     animationsMap[
-                                                                            'containerOnActionTriggerAnimation3']!
+                                                                            'containerOnActionTriggerAnimation5']!
                                                                         .controller
                                                                         .forward()
-                                                                        .whenComplete(animationsMap['containerOnActionTriggerAnimation3']!
+                                                                        .whenComplete(animationsMap['containerOnActionTriggerAnimation5']!
                                                                             .controller
                                                                             .reverse);
                                                                   }
@@ -664,7 +778,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                 onExit:
                                                                     ((event) async {
                                                                   safeSetState(() =>
-                                                                      _model.mouseRegionHovered1 =
+                                                                      _model.mouseRegionHovered2 =
                                                                           false);
                                                                 }),
                                                                 child: InkWell(
@@ -681,7 +795,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                   onTap:
                                                                       () async {
                                                                     await launchURL(
-                                                                        'https://www.facebook.com/icmsagudos/?locale=pt_BR');
+                                                                        'https://www.instagram.com/montesanto.agudos/');
                                                                   },
                                                                   child:
                                                                       Container(
@@ -692,14 +806,230 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                         BoxDecoration(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .tertiary,
                                                                       image:
                                                                           DecorationImage(
                                                                         fit: BoxFit
                                                                             .cover,
                                                                         image: Image
                                                                             .asset(
-                                                                          'assets/images/facebook.png',
+                                                                          'assets/images/instagram_(1).png',
+                                                                        ).image,
+                                                                      ),
+                                                                      boxShadow: const [
+                                                                        BoxShadow(
+                                                                          blurRadius:
+                                                                              4.0,
+                                                                          color:
+                                                                              Color(0xB0000000),
+                                                                          offset:
+                                                                              Offset(
+                                                                            0.0,
+                                                                            2.0,
+                                                                          ),
+                                                                        )
+                                                                      ],
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                  ),
+                                                                ).animateOnActionTrigger(
+                                                                  animationsMap[
+                                                                      'containerOnActionTriggerAnimation5']!,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ).animateOnActionTrigger(
+                                                          animationsMap[
+                                                              'containerOnActionTriggerAnimation4']!,
+                                                        ),
+                                                        Container(
+                                                          width: 70.0,
+                                                          height: 75.0,
+                                                          decoration:
+                                                              const BoxDecoration(
+                                                            color: Color(
+                                                                0x00FFFFFF),
+                                                          ),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              MouseRegion(
+                                                                opaque: false,
+                                                                cursor: MouseCursor
+                                                                        .defer ??
+                                                                    MouseCursor
+                                                                        .defer,
+                                                                onEnter:
+                                                                    ((event) async {
+                                                                  safeSetState(() =>
+                                                                      _model.mouseRegionHovered3 =
+                                                                          true);
+                                                                  if (animationsMap[
+                                                                          'containerOnActionTriggerAnimation7'] !=
+                                                                      null) {
+                                                                    animationsMap[
+                                                                            'containerOnActionTriggerAnimation7']!
+                                                                        .controller
+                                                                        .forward()
+                                                                        .whenComplete(animationsMap['containerOnActionTriggerAnimation7']!
+                                                                            .controller
+                                                                            .reverse);
+                                                                  }
+                                                                }),
+                                                                onExit:
+                                                                    ((event) async {
+                                                                  safeSetState(() =>
+                                                                      _model.mouseRegionHovered3 =
+                                                                          false);
+                                                                }),
+                                                                child: InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await launchURL(
+                                                                        'https://www.youtube.com/@montesanto.agudos');
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    width: 60.0,
+                                                                    height:
+                                                                        60.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .error,
+                                                                      image:
+                                                                          DecorationImage(
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                        image: Image
+                                                                            .asset(
+                                                                          'assets/images/youtube_(1).png',
+                                                                        ).image,
+                                                                      ),
+                                                                      boxShadow: const [
+                                                                        BoxShadow(
+                                                                          blurRadius:
+                                                                              4.0,
+                                                                          color:
+                                                                              Color(0xAE000000),
+                                                                          offset:
+                                                                              Offset(
+                                                                            0.0,
+                                                                            2.0,
+                                                                          ),
+                                                                        )
+                                                                      ],
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                  ),
+                                                                ).animateOnActionTrigger(
+                                                                  animationsMap[
+                                                                      'containerOnActionTriggerAnimation7']!,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ).animateOnActionTrigger(
+                                                          animationsMap[
+                                                              'containerOnActionTriggerAnimation6']!,
+                                                        ),
+                                                        Container(
+                                                          width: 70.0,
+                                                          height: 75.0,
+                                                          decoration:
+                                                              const BoxDecoration(
+                                                            color: Color(
+                                                                0x00FFFFFF),
+                                                          ),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              MouseRegion(
+                                                                opaque: false,
+                                                                cursor: MouseCursor
+                                                                        .defer ??
+                                                                    MouseCursor
+                                                                        .defer,
+                                                                onEnter:
+                                                                    ((event) async {
+                                                                  safeSetState(() =>
+                                                                      _model.mouseRegionHovered4 =
+                                                                          true);
+                                                                  if (animationsMap[
+                                                                          'containerOnActionTriggerAnimation9'] !=
+                                                                      null) {
+                                                                    animationsMap[
+                                                                            'containerOnActionTriggerAnimation9']!
+                                                                        .controller
+                                                                        .forward()
+                                                                        .whenComplete(animationsMap['containerOnActionTriggerAnimation9']!
+                                                                            .controller
+                                                                            .reverse);
+                                                                  }
+                                                                }),
+                                                                onExit:
+                                                                    ((event) async {
+                                                                  safeSetState(() =>
+                                                                      _model.mouseRegionHovered4 =
+                                                                          false);
+                                                                }),
+                                                                child: InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await launchURL(
+                                                                        'https://www.tiktok.com/@montesanto.agudos');
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    width: 60.0,
+                                                                    height:
+                                                                        60.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .warning,
+                                                                      image:
+                                                                          DecorationImage(
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                        image: Image
+                                                                            .asset(
+                                                                          'assets/images/tik-tok.png',
                                                                         ).image,
                                                                       ),
                                                                       boxShadow: const [
@@ -721,550 +1051,233 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                   ),
                                                                 ).animateOnActionTrigger(
                                                                   animationsMap[
-                                                                      'containerOnActionTriggerAnimation3']!,
+                                                                      'containerOnActionTriggerAnimation9']!,
                                                                 ),
                                                               ),
                                                             ],
                                                           ),
                                                         ).animateOnActionTrigger(
                                                           animationsMap[
-                                                              'containerOnActionTriggerAnimation2']!,
+                                                              'containerOnActionTriggerAnimation8']!,
                                                         ),
-                                                      ),
-                                                      Container(
-                                                        width: 70.0,
-                                                        height: 75.0,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          color:
-                                                              Color(0x00FFFFFF),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            MouseRegion(
-                                                              opaque: false,
-                                                              cursor: MouseCursor
-                                                                      .defer ??
-                                                                  MouseCursor
-                                                                      .defer,
-                                                              onEnter:
-                                                                  ((event) async {
-                                                                safeSetState(() =>
-                                                                    _model.mouseRegionHovered2 =
-                                                                        true);
-                                                                if (animationsMap[
-                                                                        'containerOnActionTriggerAnimation5'] !=
-                                                                    null) {
-                                                                  animationsMap[
-                                                                          'containerOnActionTriggerAnimation5']!
-                                                                      .controller
-                                                                      .forward()
-                                                                      .whenComplete(animationsMap[
-                                                                              'containerOnActionTriggerAnimation5']!
-                                                                          .controller
-                                                                          .reverse);
-                                                                }
-                                                              }),
-                                                              onExit:
-                                                                  ((event) async {
-                                                                safeSetState(() =>
-                                                                    _model.mouseRegionHovered2 =
-                                                                        false);
-                                                              }),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  await launchURL(
-                                                                      'https://www.instagram.com/montesanto.agudos/');
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  width: 60.0,
-                                                                  height: 60.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                    image:
-                                                                        DecorationImage(
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      image: Image
-                                                                          .asset(
-                                                                        'assets/images/instagram_(1).png',
-                                                                      ).image,
-                                                                    ),
-                                                                    boxShadow: const [
-                                                                      BoxShadow(
-                                                                        blurRadius:
-                                                                            4.0,
-                                                                        color: Color(
-                                                                            0xB0000000),
-                                                                        offset:
-                                                                            Offset(
-                                                                          0.0,
-                                                                          2.0,
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                  ),
-                                                                ),
-                                                              ).animateOnActionTrigger(
-                                                                animationsMap[
-                                                                    'containerOnActionTriggerAnimation5']!,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                        animationsMap[
-                                                            'containerOnActionTriggerAnimation4']!,
-                                                      ),
-                                                      Container(
-                                                        width: 70.0,
-                                                        height: 75.0,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          color:
-                                                              Color(0x00FFFFFF),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            MouseRegion(
-                                                              opaque: false,
-                                                              cursor: MouseCursor
-                                                                      .defer ??
-                                                                  MouseCursor
-                                                                      .defer,
-                                                              onEnter:
-                                                                  ((event) async {
-                                                                safeSetState(() =>
-                                                                    _model.mouseRegionHovered3 =
-                                                                        true);
-                                                                if (animationsMap[
-                                                                        'containerOnActionTriggerAnimation7'] !=
-                                                                    null) {
-                                                                  animationsMap[
-                                                                          'containerOnActionTriggerAnimation7']!
-                                                                      .controller
-                                                                      .forward()
-                                                                      .whenComplete(animationsMap[
-                                                                              'containerOnActionTriggerAnimation7']!
-                                                                          .controller
-                                                                          .reverse);
-                                                                }
-                                                              }),
-                                                              onExit:
-                                                                  ((event) async {
-                                                                safeSetState(() =>
-                                                                    _model.mouseRegionHovered3 =
-                                                                        false);
-                                                              }),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  await launchURL(
-                                                                      'https://www.youtube.com/@montesanto.agudos');
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  width: 60.0,
-                                                                  height: 60.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .error,
-                                                                    image:
-                                                                        DecorationImage(
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      image: Image
-                                                                          .asset(
-                                                                        'assets/images/youtube_(1).png',
-                                                                      ).image,
-                                                                    ),
-                                                                    boxShadow: const [
-                                                                      BoxShadow(
-                                                                        blurRadius:
-                                                                            4.0,
-                                                                        color: Color(
-                                                                            0xAE000000),
-                                                                        offset:
-                                                                            Offset(
-                                                                          0.0,
-                                                                          2.0,
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                  ),
-                                                                ),
-                                                              ).animateOnActionTrigger(
-                                                                animationsMap[
-                                                                    'containerOnActionTriggerAnimation7']!,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                        animationsMap[
-                                                            'containerOnActionTriggerAnimation6']!,
-                                                      ),
-                                                      Container(
-                                                        width: 70.0,
-                                                        height: 75.0,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          color:
-                                                              Color(0x00FFFFFF),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            MouseRegion(
-                                                              opaque: false,
-                                                              cursor: MouseCursor
-                                                                      .defer ??
-                                                                  MouseCursor
-                                                                      .defer,
-                                                              onEnter:
-                                                                  ((event) async {
-                                                                safeSetState(() =>
-                                                                    _model.mouseRegionHovered4 =
-                                                                        true);
-                                                                if (animationsMap[
-                                                                        'containerOnActionTriggerAnimation9'] !=
-                                                                    null) {
-                                                                  animationsMap[
-                                                                          'containerOnActionTriggerAnimation9']!
-                                                                      .controller
-                                                                      .forward()
-                                                                      .whenComplete(animationsMap[
-                                                                              'containerOnActionTriggerAnimation9']!
-                                                                          .controller
-                                                                          .reverse);
-                                                                }
-                                                              }),
-                                                              onExit:
-                                                                  ((event) async {
-                                                                safeSetState(() =>
-                                                                    _model.mouseRegionHovered4 =
-                                                                        false);
-                                                              }),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  await launchURL(
-                                                                      'https://www.tiktok.com/@montesanto.agudos');
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  width: 60.0,
-                                                                  height: 60.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .warning,
-                                                                    image:
-                                                                        DecorationImage(
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      image: Image
-                                                                          .asset(
-                                                                        'assets/images/tik-tok.png',
-                                                                      ).image,
-                                                                    ),
-                                                                    boxShadow: const [
-                                                                      BoxShadow(
-                                                                        blurRadius:
-                                                                            4.0,
-                                                                        color: Color(
-                                                                            0xA3000000),
-                                                                        offset:
-                                                                            Offset(
-                                                                          0.0,
-                                                                          2.0,
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                  ),
-                                                                ),
-                                                              ).animateOnActionTrigger(
-                                                                animationsMap[
-                                                                    'containerOnActionTriggerAnimation9']!,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                        animationsMap[
-                                                            'containerOnActionTriggerAnimation8']!,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ].divide(const SizedBox(height: 2.0)),
+                                                      ],
+                                                    ),
+                                                  ].divide(
+                                                      const SizedBox(height: 2.0)),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
+                                  ).animateOnActionTrigger(
+                                    animationsMap[
+                                        'containerOnActionTriggerAnimation1']!,
                                   ),
-                                ).animateOnActionTrigger(
-                                  animationsMap[
-                                      'containerOnActionTriggerAnimation1']!,
                                 ),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(-0.88, 0.16),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 4.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      if (FFAppState().openSocialMedia) {
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation1'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation1']!
-                                              .controller
-                                              .reverse();
+                                Align(
+                                  alignment: const AlignmentDirectional(-0.88, 0.16),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 4.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        if (FFAppState().openSocialMedia) {
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation1'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation1']!
+                                                .controller
+                                                .reverse();
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation2'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation2']!
+                                                .controller
+                                                .reverse();
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation4'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation4']!
+                                                .controller
+                                                .reverse();
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation6'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation6']!
+                                                .controller
+                                                .reverse();
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation8'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation8']!
+                                                .controller
+                                                .reverse();
+                                          }
+                                          if (animationsMap[
+                                                  'transformOnActionTriggerAnimation'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'transformOnActionTriggerAnimation']!
+                                                .controller
+                                                .reverse();
+                                          }
+                                          if (animationsMap[
+                                                  'iconOnActionTriggerAnimation'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'iconOnActionTriggerAnimation']!
+                                                .controller
+                                                .reverse();
+                                          }
+                                          FFAppState().openSocialMedia =
+                                              !(FFAppState().openSocialMedia ??
+                                                  true);
+                                        } else {
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation2'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation2']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation4'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation4']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation6'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation6']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation8'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation8']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          if (animationsMap[
+                                                  'transformOnActionTriggerAnimation'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'transformOnActionTriggerAnimation']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          if (animationsMap[
+                                                  'containerOnActionTriggerAnimation1'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'containerOnActionTriggerAnimation1']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          if (animationsMap[
+                                                  'iconOnActionTriggerAnimation'] !=
+                                              null) {
+                                            animationsMap[
+                                                    'iconOnActionTriggerAnimation']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          FFAppState().openSocialMedia =
+                                              !(FFAppState().openSocialMedia ??
+                                                  true);
                                         }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation2'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation2']!
-                                              .controller
-                                              .reverse();
-                                        }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation4'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation4']!
-                                              .controller
-                                              .reverse();
-                                        }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation6'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation6']!
-                                              .controller
-                                              .reverse();
-                                        }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation8'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation8']!
-                                              .controller
-                                              .reverse();
-                                        }
-                                        if (animationsMap[
-                                                'transformOnActionTriggerAnimation'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'transformOnActionTriggerAnimation']!
-                                              .controller
-                                              .reverse();
-                                        }
-                                        if (animationsMap[
-                                                'iconOnActionTriggerAnimation'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'iconOnActionTriggerAnimation']!
-                                              .controller
-                                              .reverse();
-                                        }
-                                        FFAppState().openSocialMedia =
-                                            !(FFAppState().openSocialMedia ??
-                                                true);
-                                      } else {
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation2'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation2']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation4'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation4']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation6'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation6']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation8'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation8']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        if (animationsMap[
-                                                'transformOnActionTriggerAnimation'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'transformOnActionTriggerAnimation']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        if (animationsMap[
-                                                'containerOnActionTriggerAnimation1'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'containerOnActionTriggerAnimation1']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        if (animationsMap[
-                                                'iconOnActionTriggerAnimation'] !=
-                                            null) {
-                                          animationsMap[
-                                                  'iconOnActionTriggerAnimation']!
-                                              .controller
-                                              .forward(from: 0.0);
-                                        }
-                                        FFAppState().openSocialMedia =
-                                            !(FFAppState().openSocialMedia ??
-                                                true);
-                                      }
 
-                                      FFAppState().esconder =
-                                          !(FFAppState().esconder ?? true);
-                                      safeSetState(() {});
-                                    },
-                                    child: ClipOval(
-                                      child: Container(
-                                        width: 60.0,
-                                        height: 60.0,
-                                        decoration: BoxDecoration(
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              blurRadius: 4.0,
-                                              color: Color(0xA7000000),
-                                              offset: Offset(
-                                                0.0,
-                                                2.0,
-                                              ),
-                                            )
-                                          ],
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              const Color(0xFF110958),
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary
+                                        FFAppState().esconder =
+                                            !(FFAppState().esconder ?? true);
+                                        safeSetState(() {});
+                                      },
+                                      child: ClipOval(
+                                        child: Container(
+                                          width: 60.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                blurRadius: 4.0,
+                                                color: Color(0xA7000000),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
+                                              )
                                             ],
-                                            stops: const [0.0, 1.0],
-                                            begin: const AlignmentDirectional(
-                                                1.0, -0.87),
-                                            end: const AlignmentDirectional(
-                                                -1.0, 0.87),
+                                            gradient: LinearGradient(
+                                              colors: [
+                                                const Color(0xFF110958),
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary
+                                              ],
+                                              stops: const [0.0, 1.0],
+                                              begin: const AlignmentDirectional(
+                                                  1.0, -0.87),
+                                              end: const AlignmentDirectional(
+                                                  -1.0, 0.87),
+                                            ),
+                                            shape: BoxShape.circle,
                                           ),
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Stack(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          children: [
-                                            Transform.rotate(
-                                              angle: -45.0 * (math.pi / 180),
-                                              child: Icon(
-                                                Icons.ads_click_outlined,
+                                          child: Stack(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            children: [
+                                              Transform.rotate(
+                                                angle: -45.0 * (math.pi / 180),
+                                                child: Icon(
+                                                  Icons.ads_click_outlined,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  size: 30.0,
+                                                ),
+                                              ).animateOnActionTrigger(
+                                                animationsMap[
+                                                    'transformOnActionTriggerAnimation']!,
+                                              ),
+                                              Icon(
+                                                Icons.close,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 size: 30.0,
+                                              ).animateOnActionTrigger(
+                                                animationsMap[
+                                                    'iconOnActionTriggerAnimation']!,
                                               ),
-                                            ).animateOnActionTrigger(
-                                              animationsMap[
-                                                  'transformOnActionTriggerAnimation']!,
-                                            ),
-                                            Icon(
-                                              Icons.close,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              size: 30.0,
-                                            ).animateOnActionTrigger(
-                                              animationsMap[
-                                                  'iconOnActionTriggerAnimation']!,
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         Padding(

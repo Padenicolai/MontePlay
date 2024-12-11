@@ -342,7 +342,7 @@ class _MembrosHomeCopyWidgetState extends State<MembrosHomeCopyWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            fontSize: 16.0,
+                                                            fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,

@@ -28,3 +28,4 @@ export '/pages/player/player_widget.dart' show PlayerWidget;
 export '/pages/ministracoes/ministracoes_widget.dart' show MinistracoesWidget;
 export '/pages/membros_home_copy/membros_home_copy_widget.dart'
     show MembrosHomeCopyWidget;
+export '/pages/cultos_geral/cultos_geral_widget.dart' show CultosGeralWidget;

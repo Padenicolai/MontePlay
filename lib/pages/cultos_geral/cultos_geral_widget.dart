@@ -13,19 +13,19 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'cultos_model.dart';
-export 'cultos_model.dart';
+import 'cultos_geral_model.dart';
+export 'cultos_geral_model.dart';
 
-class CultosWidget extends StatefulWidget {
-  const CultosWidget({super.key});
+class CultosGeralWidget extends StatefulWidget {
+  const CultosGeralWidget({super.key});
 
   @override
-  State<CultosWidget> createState() => _CultosWidgetState();
+  State<CultosGeralWidget> createState() => _CultosGeralWidgetState();
 }
 
-class _CultosWidgetState extends State<CultosWidget>
+class _CultosGeralWidgetState extends State<CultosGeralWidget>
     with TickerProviderStateMixin {
-  late CultosModel _model;
+  late CultosGeralModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -34,7 +34,7 @@ class _CultosWidgetState extends State<CultosWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CultosModel());
+    _model = createModel(context, () => CultosGeralModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -239,65 +239,15 @@ class _CultosWidgetState extends State<CultosWidget>
                               child: Slidable(
                                 endActionPane: ActionPane(
                                   motion: const ScrollMotion(),
-                                  extentRatio: 0.5,
+                                  extentRatio: 0.25,
                                   children: [
-                                    SlidableAction(
-                                      label: 'Editar',
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .backgroundComponents,
-                                      icon: Icons.edit_sharp,
-                                      onPressed: (_) async {
-                                        context.pushNamed(
-                                          'criarEscala',
-                                          queryParameters: {
-                                            'idCulto': serializeParam(
-                                              listCultosItem.id,
-                                              ParamType.int,
-                                            ),
-                                            'data': serializeParam(
-                                              listCultosItem.dataField,
-                                              ParamType.DateTime,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-
-                                        _model.apiResult08a =
-                                            await SupabaseGroup.getBloqueiosCall
-                                                .call(
-                                          idCulto:
-                                              'eq.${listCultosItem.id.toString()}',
-                                        );
-
-                                        FFAppState().listaUsuariosBloqueados =
-                                            SupabaseGroup.getBloqueiosCall
-                                                .idUsuario(
-                                                  (_model.apiResult08a
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )!
-                                                .toList()
-                                                .cast<int>();
-                                        safeSetState(() {});
-
-                                        safeSetState(() {});
-                                      },
-                                    ),
                                     SlidableAction(
                                       label: 'Delete',
                                       backgroundColor: const Color(0xFF520202),
                                       icon: Icons.delete_forever,
-                                      onPressed: (_) async {
-                                        _model.outDel =
-                                            await CultoTable().delete(
-                                          matchingRows: (rows) => rows.eqOrNull(
-                                            'id',
-                                            listCultosItem.id,
-                                          ),
-                                          returnRows: true,
-                                        );
-
-                                        safeSetState(() {});
+                                      onPressed: (_) {
+                                        print(
+                                            'SlidableActionWidget pressed ...');
                                       },
                                     ),
                                   ],

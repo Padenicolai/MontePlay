@@ -238,31 +238,34 @@ class _CardFuncoesWidgetState extends State<CardFuncoesWidget> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          listViewMinisteriosRow
-                                                              .nomeMinisterio,
-                                                          'padrao',
+                                                      Flexible(
+                                                        child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            listViewMinisteriosRow
+                                                                .nomeMinisterio,
+                                                            'padrao',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: const Color(
+                                                                    0xFF14181B),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Montserrat'),
+                                                              ),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyLarge
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Montserrat',
-                                                              color: const Color(
-                                                                  0xFF14181B),
-                                                              fontSize: 18.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts: GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'Montserrat'),
-                                                            ),
                                                       ),
                                                     ],
                                                   ),
