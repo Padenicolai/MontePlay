@@ -47,7 +47,10 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: SafeArea(
@@ -186,12 +189,14 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
                         height: MediaQuery.sizeOf(context).height * 1.0,
                         decoration: const BoxDecoration(),
                         child: FutureBuilder<List<ViewUsergrupoRow>>(
-                          future: ViewUsergrupoTable().queryRows(
-                            queryFn: (q) => q.eqOrNull(
-                              'idgrupo',
-                              valueOrDefault<int>(
-                                widget.grupo,
-                                0,
+                          future: FFAppState().membros(
+                            requestFn: () => ViewUsergrupoTable().queryRows(
+                              queryFn: (q) => q.eqOrNull(
+                                'idgrupo',
+                                valueOrDefault<int>(
+                                  widget.grupo,
+                                  0,
+                                ),
                               ),
                             ),
                           ),

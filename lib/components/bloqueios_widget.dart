@@ -117,7 +117,7 @@ class _BloqueiosWidgetState extends State<BloqueiosWidget> {
                     .id(
                       (_model.apiGetCulto?.jsonBody ?? ''),
                     )
-                    ?.first,
+                    ?.firstOrNull,
               ),
               options: List<int>.from(SupabaseGroup.getCultoCall.id(
                 (_model.apiGetCulto?.jsonBody ?? ''),

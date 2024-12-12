@@ -526,6 +526,21 @@ class FFAppState extends ChangeNotifier {
   void clearSeriesCache() => _seriesManager.clear();
   void clearSeriesCacheKey(String? uniqueKey) =>
       _seriesManager.clearRequest(uniqueKey);
+
+  final _membrosManager = FutureRequestManager<List<ViewUsergrupoRow>>();
+  Future<List<ViewUsergrupoRow>> membros({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ViewUsergrupoRow>> Function() requestFn,
+  }) =>
+      _membrosManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearMembrosCache() => _membrosManager.clear();
+  void clearMembrosCacheKey(String? uniqueKey) =>
+      _membrosManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

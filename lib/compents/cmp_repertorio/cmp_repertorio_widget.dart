@@ -157,42 +157,29 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                 MainAxisAlignment.spaceAround,
                                             children: [
                                               Flexible(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Container(
-                                                      width: 100.0,
-                                                      height: 100.0,
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 5.0, 0.0, 0.0),
+                                                  child: Material(
+                                                    color: Colors.transparent,
+                                                    elevation: 2.0,
+                                                    child: Container(
                                                       decoration:
                                                           const BoxDecoration(),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: Material(
-                                                  color: Colors.transparent,
-                                                  elevation: 2.0,
-                                                  child: Container(
-                                                    decoration: const BoxDecoration(),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.network(
-                                                        getJsonField(
-                                                          repItem,
-                                                          r'''$.thumbnails''',
-                                                        ).toString(),
-                                                        width: 310.0,
-                                                        height: 185.0,
-                                                        fit: BoxFit.cover,
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.network(
+                                                          getJsonField(
+                                                            repItem,
+                                                            r'''$.thumbnails''',
+                                                          ).toString(),
+                                                          width: 310.0,
+                                                          height: 185.0,
+                                                          fit: BoxFit.cover,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -213,13 +200,11 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                               .spaceAround,
                                                       children: [
                                                         FlutterFlowIconButton(
-                                                          borderRadius: 0.0,
+                                                          borderRadius: 25.0,
                                                           borderWidth: 1.0,
-                                                          buttonSize: 49.0,
+                                                          buttonSize: 45.0,
                                                           hoverColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryText,
+                                                              const Color(0xEC57636C),
                                                           hoverIconColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -230,6 +215,8 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                                 0xFFEBEDEE),
                                                             size: 28.0,
                                                           ),
+                                                          showLoadingIndicator:
+                                                              true,
                                                           onPressed: () async {
                                                             _model.insertMusic =
                                                                 await RepertorioCultoTable()
@@ -248,14 +235,19 @@ class _CmpRepertorioWidgetState extends State<CmpRepertorioWidget> {
                                                               SnackBar(
                                                                 content: Text(
                                                                   'Música adicionada à playlist',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                                    fontSize:
-                                                                        12.0,
-                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .alternate,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                      ),
                                                                 ),
                                                                 duration: const Duration(
                                                                     milliseconds:

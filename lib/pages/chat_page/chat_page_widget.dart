@@ -79,7 +79,10 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -286,8 +289,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                             chatListMessagesRow
                                                                 .senderId ==
                                                             e.userId)
-                                                        .toList()[0]
-                                                        .nomeUsuario,
+                                                        .toList()
+                                                        .elementAtOrNull(0)
+                                                        ?.nomeUsuario,
                                                     'padrao',
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -423,8 +427,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                             .senderId ==
                                                         e.userId)
                                                     .toList()
-                                                    .first
-                                                    .foto,
+                                                    .firstOrNull
+                                                    ?.foto,
                                                 'https://cdn-icons-png.flaticon.com/512/4675/4675159.png',
                                               ),
                                               fit: BoxFit.cover,
@@ -474,8 +478,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                       .senderId ==
                                                                   e.userId)
                                                               .toList()
-                                                              .first
-                                                              .nomeUsuario,
+                                                              .firstOrNull
+                                                              ?.nomeUsuario,
                                                           'padrao',
                                                         ),
                                                         style:

@@ -76,7 +76,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
               .videoid(
                 (_model.apiResultLive?.jsonBody ?? ''),
               )
-              ?.first;
+              ?.firstOrNull;
           safeSetState(() {});
         }),
         Future(() async {
@@ -489,12 +489,11 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       ),
                                                       child:
                                                           FlutterFlowYoutubePlayer(
-                                                        url:
-                                                            'https://www.youtube.com/watch?v=${PastoresGroup.apirepertorioCall.videoid(
-                                                                  (_model.apiResultLive
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.first}',
+                                                        url: 'https://www.youtube.com/watch?v=${PastoresGroup.apirepertorioCall.videoid(
+                                                              (_model.apiResultLive
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )?.firstOrNull}',
                                                         autoPlay: false,
                                                         looping: true,
                                                         mute: false,
@@ -526,7 +525,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                   (_model.apiResultLive
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.first}',
+                                                                )?.firstOrNull}',
                                                             sharePositionOrigin:
                                                                 getWidgetBoundingBox(
                                                                     context),

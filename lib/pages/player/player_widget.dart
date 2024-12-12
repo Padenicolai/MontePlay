@@ -49,7 +49,10 @@ class _PlayerWidgetState extends State<PlayerWidget> {
 
     return YoutubeFullScreenWrapper(
       child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () {
+          FocusScope.of(context).unfocus();
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
         child: Scaffold(
           key: scaffoldKey,
           resizeToAvoidBottomInset: false,

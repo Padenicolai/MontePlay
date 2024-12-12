@@ -56,7 +56,10 @@ class _RepertorioIgrejaWidgetState extends State<RepertorioIgrejaWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFF1F4F8),
@@ -74,7 +77,10 @@ class _RepertorioIgrejaWidgetState extends State<RepertorioIgrejaWidget> {
                   builder: (context) {
                     return WebViewAware(
                       child: GestureDetector(
-                        onTap: () => FocusScope.of(context).unfocus(),
+                        onTap: () {
+                          FocusScope.of(context).unfocus();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
                         child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: const CreateMusicWidget(),
@@ -291,9 +297,13 @@ class _RepertorioIgrejaWidgetState extends State<RepertorioIgrejaWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () =>
-                                                          FocusScope.of(context)
-                                                              .unfocus(),
+                                                      onTap: () {
+                                                        FocusScope.of(context)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
                                                       child: Padding(
                                                         padding: MediaQuery
                                                             .viewInsetsOf(

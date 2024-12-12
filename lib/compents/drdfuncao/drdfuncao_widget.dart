@@ -121,7 +121,7 @@ class _DrdfuncaoWidgetState extends State<DrdfuncaoWidget> {
                 await NotEscalaTable().insert({
                   'titulo': 'Nova Escala!',
                   'corpo':
-                      'Vamos Louvar! Você foi escalado para a função de ${_model.funcao.first}. Confira a nova escala!',
+                      'Vamos Louvar! Você foi escalado para a função de ${_model.funcao.firstOrNull}. Confira a nova escala!',
                   'fcmtoken': _model.fcmToken,
                 });
                 _model.fcmToken = [];

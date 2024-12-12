@@ -94,7 +94,10 @@ class _EscalaWidgetState extends State<EscalaWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFF1F4F8),
@@ -1556,9 +1559,15 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                   return WebViewAware(
                                                                     child:
                                                                         GestureDetector(
-                                                                      onTap: () =>
-                                                                          FocusScope.of(context)
-                                                                              .unfocus(),
+                                                                      onTap:
+                                                                          () {
+                                                                        FocusScope.of(context)
+                                                                            .unfocus();
+                                                                        FocusManager
+                                                                            .instance
+                                                                            .primaryFocus
+                                                                            ?.unfocus();
+                                                                      },
                                                                       child:
                                                                           Padding(
                                                                         padding:
@@ -1945,7 +1954,10 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
                                                                                       child: GestureDetector(
-                                                                                        onTap: () => FocusScope.of(context).unfocus(),
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
                                                                                         child: Padding(
                                                                                           padding: MediaQuery.viewInsetsOf(context),
                                                                                           child: SizedBox(
