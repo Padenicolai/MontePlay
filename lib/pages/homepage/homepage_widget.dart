@@ -1328,12 +1328,9 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       alignment:
                                           const AlignmentDirectional(0.0, -0.36),
                                       child: FutureBuilder<List<PastoresRow>>(
-                                        future: FFAppState().pastores(
-                                          requestFn: () =>
-                                              PastoresTable().queryRows(
-                                            queryFn: (q) => q.order('ordem',
-                                                ascending: true),
-                                          ),
+                                        future: PastoresTable().queryRows(
+                                          queryFn: (q) =>
+                                              q.order('ordem', ascending: true),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -1508,10 +1505,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 5.0, 0.0, 5.0),
                           child: FutureBuilder<List<SrieRow>>(
-                            future: FFAppState().series(
-                              requestFn: () => SrieTable().queryRows(
-                                queryFn: (q) => q,
-                              ),
+                            future: SrieTable().queryRows(
+                              queryFn: (q) => q,
                             ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.

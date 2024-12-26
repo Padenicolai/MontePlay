@@ -142,7 +142,7 @@ class _EsqueceuaSenhaWidgetState extends State<EsqueceuaSenhaWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
                 child: Text(
-                  'Nós enviaremos um e-mail ara o e-mail cadastrado para recuperação de senha.',
+                  'Nós enviaremos um e-mail para o e-mail cadastrado para recuperação de senha.',
                   style: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).labelMediumFamily,

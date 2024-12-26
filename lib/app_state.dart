@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow/request_manager.dart';
 import '/backend/schema/structs/index.dart';
-import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -496,51 +494,6 @@ class FFAppState extends ChangeNotifier {
   set fcmTokenAdminLouvor(String value) {
     _fcmTokenAdminLouvor = value;
   }
-
-  final _pastoresManager = FutureRequestManager<List<PastoresRow>>();
-  Future<List<PastoresRow>> pastores({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<List<PastoresRow>> Function() requestFn,
-  }) =>
-      _pastoresManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearPastoresCache() => _pastoresManager.clear();
-  void clearPastoresCacheKey(String? uniqueKey) =>
-      _pastoresManager.clearRequest(uniqueKey);
-
-  final _seriesManager = FutureRequestManager<List<SrieRow>>();
-  Future<List<SrieRow>> series({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<List<SrieRow>> Function() requestFn,
-  }) =>
-      _seriesManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearSeriesCache() => _seriesManager.clear();
-  void clearSeriesCacheKey(String? uniqueKey) =>
-      _seriesManager.clearRequest(uniqueKey);
-
-  final _membrosManager = FutureRequestManager<List<ViewUsergrupoRow>>();
-  Future<List<ViewUsergrupoRow>> membros({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<List<ViewUsergrupoRow>> Function() requestFn,
-  }) =>
-      _membrosManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearMembrosCache() => _membrosManager.clear();
-  void clearMembrosCacheKey(String? uniqueKey) =>
-      _membrosManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

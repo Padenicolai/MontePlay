@@ -188,18 +188,19 @@ class _MembrosHomeWidgetState extends State<MembrosHomeWidget> {
                         width: 393.0,
                         height: MediaQuery.sizeOf(context).height * 1.0,
                         decoration: const BoxDecoration(),
-                        child: FutureBuilder<List<ViewUsergrupoRow>>(
-                          future: FFAppState().membros(
-                            requestFn: () => ViewUsergrupoTable().queryRows(
-                              queryFn: (q) => q.eqOrNull(
-                                'idgrupo',
-                                valueOrDefault<int>(
-                                  widget.grupo,
-                                  0,
-                                ),
-                              ),
-                            ),
-                          ),
+                        child: StreamBuilder<List<ViewUsergrupoRow>>(
+                          stream: _model.staggeredViewSupabaseStream ??=
+                              SupaFlow.client
+                                  .from("view_usergrupo")
+                                  .stream(
+                                      primaryKey: ['usuarios_id', 'idgrupo'])
+                                  .eqOrNull(
+                                    'idgrupo',
+                                    widget.grupo,
+                                  )
+                                  .map((list) => list
+                                      .map((item) => ViewUsergrupoRow(item))
+                                      .toList()),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {

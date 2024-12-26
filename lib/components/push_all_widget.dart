@@ -371,7 +371,7 @@ class _PushAllWidgetState extends State<PushAllWidget> {
                             elevation: 3.0,
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
-                              width: 3.0,
+                              width: 2.0,
                             ),
                           ),
                         ),
@@ -436,7 +436,7 @@ class _PushAllWidgetState extends State<PushAllWidget> {
                             elevation: 3.0,
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
-                              width: 3.0,
+                              width: 2.0,
                             ),
                           ),
                         ),

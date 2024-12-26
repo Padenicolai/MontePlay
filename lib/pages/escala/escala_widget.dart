@@ -441,7 +441,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                               ),
                                                               child: Container(
                                                                 width: 100.0,
-                                                                height: 65.0,
+                                                                height: 75.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: const Color(
@@ -495,7 +495,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       valueOrDefault<String>(
                                                                                         louvorItem.nomeMinisterio,
@@ -518,17 +518,16 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                  Expanded(
                                                                                     child: AutoSizeText(
                                                                                       valueOrDefault<String>(
                                                                                         louvorItem.usuario,
-                                                                                        'padrao',
+                                                                                        'Nome',
                                                                                       ),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                             color: FlutterFlowTheme.of(context).alternate,
-                                                                                            fontSize: 13.0,
+                                                                                            fontSize: 12.0,
                                                                                             letterSpacing: 3.0,
                                                                                             fontWeight: FontWeight.bold,
                                                                                             useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -730,7 +729,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                               ),
                                                               child: Container(
                                                                 width: 100.0,
-                                                                height: 65.0,
+                                                                height: 75.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: const Color(
@@ -784,7 +783,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(2.0, 3.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       valueOrDefault<String>(
                                                                                         dancaItem.nomeMinisterio,
@@ -807,21 +806,23 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                                                                                    child: AutoSizeText(
-                                                                                      valueOrDefault<String>(
-                                                                                        dancaItem.usuario,
-                                                                                        'padrao',
+                                                                                  Expanded(
+                                                                                    child: Padding(
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                                                                                      child: AutoSizeText(
+                                                                                        valueOrDefault<String>(
+                                                                                          dancaItem.usuario,
+                                                                                          'padrao',
+                                                                                        ),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                              color: FlutterFlowTheme.of(context).alternate,
+                                                                                              fontSize: 12.0,
+                                                                                              letterSpacing: 3.0,
+                                                                                              fontWeight: FontWeight.bold,
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                            ),
                                                                                       ),
-                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                            color: FlutterFlowTheme.of(context).alternate,
-                                                                                            fontSize: 12.0,
-                                                                                            letterSpacing: 3.0,
-                                                                                            fontWeight: FontWeight.bold,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                          ),
                                                                                     ),
                                                                                   ),
                                                                                 ],
@@ -1019,7 +1020,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                               ),
                                                               child: Container(
                                                                 width: 100.0,
-                                                                height: 65.0,
+                                                                height: 75.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: const Color(
@@ -1073,7 +1074,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(2.0, 3.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       valueOrDefault<String>(
                                                                                         midiaItem.nomeMinisterio,
@@ -1096,8 +1097,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                                                                                  Expanded(
                                                                                     child: AutoSizeText(
                                                                                       valueOrDefault<String>(
                                                                                         midiaItem.usuario,
@@ -1305,7 +1305,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                             ),
                                                             child: Container(
                                                               width: 100.0,
-                                                              height: 65.0,
+                                                              height: 75.0,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: const Color(
@@ -1361,7 +1361,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 3.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
                                                                                       infantilItem.nomeMinisterio,
@@ -1385,8 +1385,7 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                                 Row(
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
-                                                                                Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                Expanded(
                                                                                   child: AutoSizeText(
                                                                                     valueOrDefault<String>(
                                                                                       infantilItem.usuario,
@@ -1533,120 +1532,124 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                         alignment:
                                                             const AlignmentDirectional(
                                                                 0.0, -1.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      30.0,
-                                                                      0.0,
-                                                                      30.0,
-                                                                      10.0),
-                                                          child: FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                useSafeArea:
-                                                                    true,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return WebViewAware(
-                                                                    child:
-                                                                        GestureDetector(
-                                                                      onTap:
-                                                                          () {
-                                                                        FocusScope.of(context)
-                                                                            .unfocus();
-                                                                        FocusManager
-                                                                            .instance
-                                                                            .primaryFocus
-                                                                            ?.unfocus();
-                                                                      },
+                                                        child: Builder(
+                                                          builder: (context) =>
+                                                              Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        30.0,
+                                                                        0.0,
+                                                                        30.0,
+                                                                        10.0),
+                                                            child:
+                                                                FFButtonWidget(
+                                                              onPressed:
+                                                                  () async {
+                                                                await showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (dialogContext) {
+                                                                    return Dialog(
+                                                                      elevation:
+                                                                          0,
+                                                                      insetPadding:
+                                                                          EdgeInsets
+                                                                              .zero,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      alignment: const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0)
+                                                                          .resolve(
+                                                                              Directionality.of(context)),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          WebViewAware(
                                                                         child:
-                                                                            CmpRepertorioWidget(
-                                                                          idCulto:
-                                                                              widget.idCulto!,
+                                                                            GestureDetector(
+                                                                          onTap:
+                                                                              () {
+                                                                            FocusScope.of(dialogContext).unfocus();
+                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                          },
+                                                                          child:
+                                                                              CmpRepertorioWidget(
+                                                                            idCulto:
+                                                                                widget.idCulto!,
+                                                                            atualizarLista:
+                                                                                () async {},
+                                                                          ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            },
-                                                            text:
-                                                                'ADICIONAR MÚSICA',
-                                                            icon: const Icon(
-                                                              Icons
-                                                                  .playlist_add,
-                                                              size: 30.0,
-                                                            ),
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  1.0,
-                                                              height: 35.0,
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          24.0,
-                                                                          0.0,
-                                                                          24.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: const Color(
-                                                                  0xFF100A49),
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                        color: Colors
-                                                                            .white,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
-                                                                      ),
-                                                              elevation: 10.0,
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0xD8000000),
-                                                                width: 1.0,
+                                                                    );
+                                                                  },
+                                                                );
+                                                              },
+                                                              text:
+                                                                  'ADICIONAR MÚSICA',
+                                                              icon: const Icon(
+                                                                Icons
+                                                                    .playlist_add,
+                                                                size: 30.0,
                                                               ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          16.0),
-                                                              hoverBorderSide:
-                                                                  BorderSide(
-                                                                color: FlutterFlowTheme.of(
+                                                              options:
+                                                                  FFButtonOptions(
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    1.0,
+                                                                height: 35.0,
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
+                                                                iconPadding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                color: const Color(
+                                                                    0xFF100A49),
+                                                                textStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryText,
-                                                                width: 1.0,
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                    ),
+                                                                elevation: 10.0,
+                                                                borderSide:
+                                                                    const BorderSide(
+                                                                  color: Color(
+                                                                      0xD8000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            16.0),
+                                                                hoverBorderSide:
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  width: 1.0,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
@@ -1875,30 +1878,34 @@ class _EscalaWidgetState extends State<EscalaWidget>
                                                                                 MainAxisAlignment.center,
                                                                             children:
                                                                                 [
-                                                                              Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Flexible(
-                                                                                      child: AutoSizeText(
-                                                                                        valueOrDefault<String>(
-                                                                                          setlistViewSetlistRow.titulo,
-                                                                                          'PADRAO',
-                                                                                        ).maybeHandleOverflow(
-                                                                                          maxChars: 30,
-                                                                                          replacement: '…',
+                                                                              Align(
+                                                                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Expanded(
+                                                                                        child: AutoSizeText(
+                                                                                          valueOrDefault<String>(
+                                                                                            setlistViewSetlistRow.titulo,
+                                                                                            'PADRAO',
+                                                                                          ).maybeHandleOverflow(
+                                                                                            maxChars: 30,
+                                                                                            replacement: '…',
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                fontSize: 10.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.w600,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
                                                                                         ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              fontSize: 10.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.w600,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
                                                                                       ),
-                                                                                    ),
-                                                                                  ],
+                                                                                    ],
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                               Padding(

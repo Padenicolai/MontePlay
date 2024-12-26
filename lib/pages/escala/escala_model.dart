@@ -19,6 +19,16 @@ class EscalaModel extends FlutterFlowModel<EscalaWidget> {
 
   String? status;
 
+  List<RepertorioCultoRow> repertorio = [];
+  void addToRepertorio(RepertorioCultoRow item) => repertorio.add(item);
+  void removeFromRepertorio(RepertorioCultoRow item) => repertorio.remove(item);
+  void removeAtIndexFromRepertorio(int index) => repertorio.removeAt(index);
+  void insertAtIndexInRepertorio(int index, RepertorioCultoRow item) =>
+      repertorio.insert(index, item);
+  void updateRepertorioAtIndex(
+          int index, Function(RepertorioCultoRow) updateFn) =>
+      repertorio[index] = updateFn(repertorio[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (getUsuarios)] action in escala widget.

@@ -167,7 +167,7 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                 ),
                 Container(
                   width: double.infinity,
-                  height: 242.0,
+                  height: 269.0,
                   decoration: const BoxDecoration(),
                   child: FutureBuilder<List<EscalasRow>>(
                     future: EscalasTable().queryRows(
@@ -210,7 +210,7 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                       16.0, 12.0, 12.0, 12.0),
                                   child: Container(
                                     width: 176.0,
-                                    height: 217.0,
+                                    height: 241.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -248,33 +248,39 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 8.0, 0.0, 0.0),
-                                                child: AutoSizeText(
-                                                  valueOrDefault<String>(
-                                                    listViewEscalasRow.usuario,
-                                                    'padrão',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
-                                                        color:
-                                                            const Color(0xFF14181B),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                'Plus Jakarta Sans'),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: AutoSizeText(
+                                                      valueOrDefault<String>(
+                                                        listViewEscalasRow
+                                                            .usuario,
+                                                        'Nome',
                                                       ),
-                                                ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: const Color(
+                                                                0xFF14181B),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
@@ -621,19 +627,21 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                                                 BoxFit.cover,
                                                                           ),
                                                                         ),
-                                                                        Flexible(
+                                                                        Expanded(
                                                                           child:
                                                                               AutoSizeText(
                                                                             valueOrDefault<String>(
                                                                               listViewVEscalagrupoRow.nomeUsuario,
-                                                                              'padrao',
+                                                                              'Nome',
                                                                             ),
+                                                                            textAlign:
+                                                                                TextAlign.center,
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                   color: Colors.black,
-                                                                                  fontSize: 18.0,
+                                                                                  fontSize: 16.0,
                                                                                   letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.w500,
+                                                                                  fontWeight: FontWeight.w600,
                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
@@ -862,22 +870,24 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                                                 BoxFit.cover,
                                                                           ),
                                                                         ),
-                                                                        AutoSizeText(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            listViewVEscalagrupoRow.nomeUsuario,
-                                                                            'padrao',
+                                                                        Expanded(
+                                                                          child:
+                                                                              AutoSizeText(
+                                                                            valueOrDefault<String>(
+                                                                              listViewVEscalagrupoRow.nomeUsuario,
+                                                                              'Nome',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  color: FlutterFlowTheme.of(context).alternate,
+                                                                                  fontSize: 16.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
                                                                           ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                fontSize: 18.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                              ),
                                                                         ),
                                                                         Theme(
                                                                           data:
@@ -1096,21 +1106,24 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                                                 BoxFit.cover,
                                                                           ),
                                                                         ),
-                                                                        AutoSizeText(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            listViewVEscalagrupoRow.nomeUsuario,
-                                                                            'padrao',
+                                                                        Expanded(
+                                                                          child:
+                                                                              AutoSizeText(
+                                                                            valueOrDefault<String>(
+                                                                              listViewVEscalagrupoRow.nomeUsuario,
+                                                                              'padrao',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  color: Colors.black,
+                                                                                  fontSize: 16.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
                                                                           ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                color: Colors.black,
-                                                                                fontSize: 18.0,
-                                                                                letterSpacing: 0.0,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                              ),
                                                                         ),
                                                                         Theme(
                                                                           data:
@@ -1328,21 +1341,24 @@ class _CriarEscalaWidgetState extends State<CriarEscalaWidget>
                                                                                 BoxFit.cover,
                                                                           ),
                                                                         ),
-                                                                        AutoSizeText(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            listViewVEscalagrupoRow.nomeUsuario,
-                                                                            'padrao',
+                                                                        Expanded(
+                                                                          child:
+                                                                              AutoSizeText(
+                                                                            valueOrDefault<String>(
+                                                                              listViewVEscalagrupoRow.nomeUsuario,
+                                                                              'Nome',
+                                                                            ),
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  color: FlutterFlowTheme.of(context).alternate,
+                                                                                  fontSize: 16.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                ),
                                                                           ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                color: FlutterFlowTheme.of(context).alternate,
-                                                                                fontSize: 18.0,
-                                                                                letterSpacing: 0.0,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                              ),
                                                                         ),
                                                                         Theme(
                                                                           data:

@@ -130,7 +130,7 @@ class _ColaboradoresIgrejaWidgetState extends State<ColaboradoresIgrejaWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 308.0,
+                    height: 318.0,
                     decoration: const BoxDecoration(),
                     child: FutureBuilder<List<ViewTotalGrupoRow>>(
                       future: ViewTotalGrupoTable().queryRows(
@@ -183,7 +183,7 @@ class _ColaboradoresIgrejaWidgetState extends State<ColaboradoresIgrejaWidget> {
                                 },
                                 child: Container(
                                   width: 100.0,
-                                  height: 0.0,
+                                  height: 6.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,

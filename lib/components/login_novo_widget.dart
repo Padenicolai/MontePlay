@@ -179,7 +179,6 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       isDense: true,
-                                      labelText: 'Email',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -196,6 +195,7 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .titleMediumFamily),
                                           ),
+                                      hintText: 'E-mail',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                           color: Color(0x00E0E3E7),
@@ -235,7 +235,7 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                                       fillColor: const Color(0xFFF6F6F6),
                                       contentPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
-                                              64.0, 24.0, 24.0, 24.0),
+                                              24.0, 24.0, 24.0, 24.0),
                                       prefixIcon: const Icon(
                                         Icons.mail_rounded,
                                         color: Color(0xFF9B9B9C),
@@ -301,7 +301,6 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                                     obscureText: !_model.passwordVisibility,
                                     decoration: InputDecoration(
                                       isDense: true,
-                                      labelText: 'Password',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -318,6 +317,7 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .titleMediumFamily),
                                           ),
+                                      hintText: 'Senha',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                           color: Color(0x00E0E3E7),
@@ -357,7 +357,7 @@ class _LoginNovoWidgetState extends State<LoginNovoWidget>
                                       fillColor: const Color(0xFFF6F6F6),
                                       contentPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
-                                              64.0, 24.0, 24.0, 24.0),
+                                              24.0, 24.0, 24.0, 24.0),
                                       prefixIcon: const Icon(
                                         Icons.lock,
                                         color: Color(0xFF9B9B9C),

@@ -15,9 +15,11 @@ class CmpRepertorioWidget extends StatefulWidget {
   const CmpRepertorioWidget({
     super.key,
     required this.idCulto,
+    this.atualizarLista,
   });
 
   final int? idCulto;
+  final Future Function()? atualizarLista;
 
   @override
   State<CmpRepertorioWidget> createState() => _CmpRepertorioWidgetState();
